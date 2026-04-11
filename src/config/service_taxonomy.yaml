@@ -1,0 +1,503 @@
+  version: 1.2
+
+  categories:
+
+    - name: prototyping
+      definition: >
+        Hands-on creation of prototype artifacts, demonstrators, mockups, test
+        articles, or assembled proof-of-concept units used to validate or
+        demonstrate a concept before production or operational deployment.
+        This category requires evidence of build, fabrication, assembly, or
+        physical/digital prototype creation as a core deliverable.
+      examples:
+        - rapid prototyping of hardware systems
+        - fabrication of test articles
+        - proof-of-concept hardware builds
+        - additive manufacturing of prototype components
+        - assembly and integration of demonstrator units
+      keywords:
+        - prototype build
+        - build prototype
+        - hardware prototype
+        - software prototype
+        - rapid prototyping
+        - test article
+        - demonstrator
+        - mockup
+        - breadboard
+        - benchtop prototype
+        - fabrication
+        - fabricate
+        - fabricated
+        - additive manufacturing
+        - 3d printing
+        - printed part
+        - assemble prototype
+        - prototype integration
+        - prototype unit
+      strong_signals:
+        - prototype build
+        - build prototype
+        - hardware prototype
+        - test article
+        - demonstrator
+        - fabrication
+        - fabricate
+        - additive manufacturing
+        - 3d printing
+        - assemble prototype
+      weak_signals:
+        - prototype
+        - poc
+        - development
+        - testing
+        - research
+        - r&d
+      psc_hints:
+        - ADP
+      naics_hints:
+        - 541715
+      ambiguity_notes: >
+        Use this category only when the deliverable clearly includes a built,
+        fabricated, assembled, printed, or integrated prototype artifact. Do not
+        classify here based only on broad R&D, development, analysis, engineering,
+        or feasibility language. If the contract centers on design, modeling,
+        simulation, systems engineering, or technical analysis without artifact
+        creation, prefer engineering_design_support.
+
+    - name: engineering_design_support
+      definition: >
+        Technical engineering services focused on system design, modeling,
+        simulation, architecture, trade studies, requirements development,
+        feasibility analysis, technical assessment, or systems engineering where
+        the primary output is analysis or design rather than a built prototype.
+      examples:
+        - CAD modeling and simulation
+        - engineering analysis and trade studies
+        - system architecture design
+        - systems engineering support
+        - requirements and feasibility analysis
+      keywords:
+        - engineering services
+        - engineering support
+        - systems engineering
+        - system design
+        - architecture design
+        - cad
+        - computer aided design
+        - modeling
+        - simulation
+        - engineering analysis
+        - trade study
+        - trade studies
+        - feasibility analysis
+        - requirements development
+        - technical assessment
+        - design review
+        - reliability analysis
+        - integration analysis
+        - technical analysis
+      strong_signals:
+        - systems engineering
+        - system design
+        - architecture design
+        - cad
+        - modeling
+        - simulation
+        - engineering analysis
+        - trade study
+        - feasibility analysis
+        - requirements development
+        - technical analysis
+      weak_signals:
+        - engineering support
+        - technical support
+        - analysis
+        - design support
+        - development
+      psc_hints:
+        - ADP
+      naics_hints:
+        - 541715
+      ambiguity_notes: >
+        Use this category when the contract centers on analysis, modeling, design,
+        systems engineering, requirements, or technical planning and lacks clear
+        evidence of fabrication, assembly, test-article production, or prototype
+        build activity. If the text materially emphasizes prototype creation,
+        fabrication, demonstrators, or printed/assembled units, prefer prototyping.
+
+    - name: project_program_support
+      definition: >
+        Administrative, managerial, acquisition, governance, scheduling,
+        documentation, logistics, reporting, or coordination services that help
+        run a program or project but are not themselves the core technical work.
+      examples:
+        - program management office support
+        - acquisition and governance support
+        - milestone tracking and reporting
+        - logistics coordination
+        - compliance and documentation support
+      keywords:
+        - program management
+        - program management support
+        - management support
+        - task order
+      strong_signals:
+        - program management
+        - program management support
+      weak_signals:
+        - management support
+        - task order
+      negative_signals:
+        - consulting services
+        - management consulting
+        - administrative management
+        - general management
+      psc_hints:
+        - R408
+        - R499
+      naics_hints:
+        - 541611
+        - 541618
+      ambiguity_notes: >
+        Use this category only when the core value is administration, oversight,
+        acquisition, logistics, governance, scheduling, or coordination. Do not
+        use it as a fallback for vaguely technical work. If strong engineering,
+        prototyping, event execution, workspace provision, or explicit ecosystem
+        access signals are present, prefer the more specific category.
+
+    - name: event_hosting
+      definition: >
+        Planning, organizing, administering, or executing physical or virtual
+        events where the main deliverable is the event itself, including logistics,
+        facilitation, venue support, attendee management, and event operations.
+      examples:
+        - workshops and conferences
+        - innovation challenge events
+        - hackathons
+        - symposiums and demo days
+        - industry days and event logistics support
+      keywords:
+        - event hosting
+        - event management
+        - event planning
+        - event logistics
+        - workshop
+        - conference
+        - symposium
+        - seminar
+        - hackathon
+        - challenge event
+        - demo day
+        - demonstration event
+        - industry day
+        - attendee registration
+        - venue coordination
+        - facilitation
+        - meeting logistics
+      strong_signals:
+        - event hosting
+        - event management
+        - event planning
+        - event logistics
+        - workshop
+        - conference
+        - symposium
+        - hackathon
+        - challenge event
+        - demo day
+        - industry day
+      weak_signals:
+        - event
+        - meeting
+        - engagement
+        - collaboration
+      psc_hints:
+        - R499
+      naics_hints:
+        - 561920
+      ambiguity_notes: >
+        Use this category when the contract is about running or administering an
+        event. Do not use it when the primary value is access to a network,
+        vendor base, startup community, or innovation pipeline beyond a specific
+        event; in that case prefer innovation_ecosystem_access. Do not use it
+        for provision of space alone; prefer workspace_collaboration there.
+
+    - name: workspace_collaboration
+      definition: >
+        Provision, operation, or access to physical or virtual spaces that enable
+        collaboration, experimentation, secure interaction, or co-working, where
+        the primary deliverable is the environment itself.
+      examples:
+        - shared innovation lab space
+        - collaborative workspace access
+        - secure meeting environments
+        - makerspace or lab environment access
+        - virtual collaboration platform environments
+      keywords:
+        - workspace
+        - collaboration space
+        - collaborative workspace
+        - lab space
+        - shared lab
+        - co working
+        - co-working
+        - coworking
+        - innovation lab
+        - facility access
+        - secure facility
+        - shared environment
+        - makerspace
+        - collaboration environment
+        - virtual collaboration platform
+      strong_signals:
+        - workspace
+        - collaboration space
+        - lab space
+        - innovation lab
+        - facility access
+        - makerspace
+        - shared environment
+      weak_signals:
+        - collaboration
+        - meeting
+        - lab
+        - environment
+      psc_hints:
+        - X1AA
+      naics_hints:
+        - 531120
+      ambiguity_notes: >
+        Use this category when the contract provides the environment or access to
+        the environment. Do not use it for event execution, partner-network access,
+        or technical services performed in the space. If the text emphasizes event
+        operations, prefer event_hosting. If it emphasizes startup/vendor/partner
+        access, prefer innovation_ecosystem_access.
+
+    - name: innovation_ecosystem_access
+      definition: >
+        Structured access to external innovators, startups, vendors,
+        non-traditional partners, scouting pipelines, or curated partner networks
+        where the core value is discovery, matchmaking, relationship access, or
+        innovation-network participation.
+      examples:
+        - startup scouting and matching
+        - curated vendor ecosystem access
+        - non-traditional partner pipelines
+        - technology scouting and discovery networks
+        - innovation accelerator or partner-network access
+      keywords:
+        - innovation ecosystem
+        - ecosystem access
+        - vendor access
+        - vendor network
+        - startup engagement
+        - startup network
+        - partner network
+        - non traditional partner
+        - non-traditional partner
+        - technology scouting
+        - solution scouting
+        - technology discovery
+        - vendor matching
+        - startup matching
+        - market scouting
+        - innovation pipeline
+        - partner access
+        - accelerator
+        - incubator
+        - innovation hub
+        - consortium
+      strong_signals:
+        - innovation ecosystem
+        - ecosystem access
+        - vendor access
+        - startup engagement
+        - startup network
+        - partner network
+        - technology scouting
+        - solution scouting
+        - vendor matching
+        - startup matching
+        - innovation pipeline
+        - accelerator
+        - incubator
+        - consortium
+      weak_signals:
+        - engagement
+        - outreach
+        - innovation
+        - network
+        - partnership
+      psc_hints: []
+      naics_hints: []
+      ambiguity_notes: >
+        Use this category only when the contract explicitly points to partner,
+        vendor, startup, ecosystem, accelerator, scouting, matching, or network
+        access. Do not use broad PSC/NAICS evidence alone for this category.
+        Do not use it for generic professional services, logistics support,
+        technical assistance, R&D, or event execution unless ecosystem access is
+        explicit in the text.
+
+    - name: integrated_service_delivery
+      definition: >
+        Contracts that explicitly bundle multiple distinct service types into one
+        combined delivery model and cannot reasonably be assigned to a single
+        dominant category.
+      examples:
+        - end-to-end innovation support spanning engineering, prototyping,
+          and program management
+        - bundled delivery combining technical development and execution support
+        - full lifecycle support with multiple distinct service modes
+      keywords:
+        - end to end delivery
+        - integrated services
+        - integrated support
+        - full lifecycle support
+        - combined services
+        - bundled services
+        - turnkey support
+        - multi disciplinary support
+        - multidisciplinary support
+        - cradle to grave support
+      strong_signals:
+        - end to end delivery
+        - integrated services
+        - full lifecycle support
+        - combined services
+        - bundled services
+        - turnkey support
+        - cradle to grave support
+      weak_signals:
+        - integrated
+        - full lifecycle
+        - end to end
+        - support
+      psc_hints:
+        - R499
+      naics_hints:
+        - 541715
+      ambiguity_notes: >
+        Use this category sparingly and only when multiple distinct categories are
+        clearly intended as a bundled model and no single category is dominant.
+        Do not use it as a generic fallback for ambiguity between two categories.
+
+    - name: technical_advisory_services
+      definition: >
+        Advisory, governance, and development-oriented services focused on policy,
+        institutional capacity, public sector effectiveness, implementation guidance,
+        and stakeholder engagement rather than engineering design, fabrication, or
+        prototype build work. Excludes general consulting, administrative support,
+        logistics support, and ordinary program management support.
+      keywords:
+        - technical assistance
+        - governance
+        - capacity building
+        - institutional strengthening
+        - policy support
+        - stakeholder engagement
+        - implementation support
+        - development activity
+        - public sector
+        - civil society
+        - service delivery improvement
+      strong_signals:
+        - technical assistance
+        - capacity building
+        - institutional strengthening
+        - governance
+        - policy support
+        - stakeholder engagement
+      weak_signals:
+        - implementation support
+        - development activity
+        - public sector
+        - civil society
+        - service delivery improvement
+      psc_hints: []
+      naics_hints: []
+      ambiguity_notes: >
+        Use for governance, policy, institutional strengthening, stakeholder engagement,
+        public-sector improvement, and capacity-building work. Do not use for engineering
+        design/build/test work, prototyping, logistics support, administrative support,
+        executive support, or generic program management support.
+
+    - name: development_program_services
+      definition: >
+        Execution of public sector, international development, workforce,
+        health, education, economic growth, or institutional improvement programs
+        where the primary deliverable is program outcomes rather than engineering,
+        prototyping, or administrative project support.
+      keywords:
+        - citizen engagement
+        - capacity building
+        - institutional strengthening
+        - service delivery
+        - workforce development
+        - workforce activity
+        - education project
+        - health project
+        - justice sector
+        - community resilience
+        - economic growth activity
+        - trade and investment activity
+        - development activity
+        - development program
+        - program implementation
+        - project implementation
+        - education
+        - health
+        - workforce
+        - training
+      strong_signals:
+        - citizen engagement
+        - capacity building
+        - institutional strengthening
+        - service delivery
+        - workforce development
+        - workforce activity
+        - education project
+        - health project
+        - justice sector
+        - community resilience
+        - economic growth activity
+        - trade and investment activity
+      weak_signals:
+        - development
+        - program
+        - services
+      psc_hints: []
+      naics_hints: []
+      ambiguity_notes: >
+        Use when the contract describes execution of development-oriented programs.
+        Do not use for engineering, prototyping, logistics, or administrative support.
+
+    - name: professional_services_support
+      definition: >
+        General professional, scientific, technical, and operational support services
+        that do not involve engineering design, prototyping, or development programs.
+        Includes administrative, logistical, and contract support functions.
+      keywords:
+        - professional services
+        - technical services
+        - scientific services
+        - support services
+        - logistics support
+        - program support
+        - management support
+        - contract support
+        - administrative support
+      strong_signals:
+        - professional scientific technical services
+        - support professional other
+        - technical services
+        - logistics support
+        - management logistics support
+      weak_signals:
+        - support
+        - services
+        - professional
+        - technical
+        - logistics
+      psc_hints: []
+      naics_hints: []

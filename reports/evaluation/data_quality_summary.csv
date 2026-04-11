@@ -1,0 +1,34 @@
+column_name,missing_pct,reliability,category,include_in_kpi,notes
+total_outlays,53.4441,low,important,no,Use as secondary metric only; missingness is too high for headline KPI use.
+description,0.5936,medium,critical,yes,Core text field for filtering and future comparability logic.
+description_clean,0.5936,medium,enrichment,no,Derived from description and inherits its missingness.
+naics_code,0.2456,high,important,yes,Monitor for downstream analytical impact.
+naics_description,0.2456,high,important,yes,Monitor for downstream analytical impact.
+agency_slug,0.0205,high,enrichment,no,Monitor for downstream analytical impact.
+awarding_agency_id,0.0205,high,enrichment,no,Monitor for downstream analytical impact.
+award_amount,0.0,high,critical,yes,Fully populated.
+award_duration_days,0.0,high,enrichment,yes,Derived from start_date and end_date; useful for duration-based analysis.
+award_id,0.0,high,important,yes,Fully populated.
+awarding_agency,0.0,high,critical,yes,Fully populated.
+awarding_agency_code,0.0,high,important,yes,Fully populated.
+awarding_sub_agency,0.0,high,important,yes,Fully populated.
+base_obligation_date,0.0,high,important,yes,Fully populated.
+contract_award_type,0.0,high,important,yes,Fully populated.
+end_date,0.0,high,critical,yes,Fully populated.
+fiscal_year,0.0,high,important,yes,Fully populated.
+funding_agency,0.0,high,important,yes,Fully populated.
+funding_sub_agency,0.0,high,important,yes,Fully populated.
+generated_internal_id,0.0,high,important,yes,Fully populated.
+internal_id,0.0,high,enrichment,no,Fully populated.
+is_duplicate_row,0.0,high,enrichment,no,Operational duplicate-monitoring field.
+processed_at,0.0,high,enrichment,no,Fully populated.
+psc_code,0.0,high,important,yes,Fully populated.
+psc_description,0.0,high,important,yes,Fully populated.
+query_name,0.0,high,enrichment,no,Lineage field; should support auditability and run-level traceability.
+recipient_name,0.0,high,important,yes,Fully populated.
+recipient_uei,0.0,high,important,no,Fully populated.
+record_hash,0.0,high,enrichment,no,Operational QA field.
+run_id,0.0,high,enrichment,no,Lineage field; should support auditability and run-level traceability.
+source_file,0.0,high,enrichment,no,Fully populated.
+start_date,0.0,high,critical,yes,Fully populated.
+text_all,0.0,high,enrichment,no,Combined text feature for downstream filtering and ML.

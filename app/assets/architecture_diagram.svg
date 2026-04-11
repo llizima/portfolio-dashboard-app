@@ -1,0 +1,94 @@
+<svg width="100%" height="auto" viewBox="0 0 1400 760" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="SOFWERX Value Dashboard architecture diagram">
+  <style>
+    .title    { font: 700 28px Arial, sans-serif; fill: #ed6622; }
+    .subtitle { font: 400 15px Arial, sans-serif; fill: #8a8fa8; }
+    .box-title { font: 700 18px Arial, sans-serif; fill: #e8e8e8; }
+    .box-text  { font: 400 14px Arial, sans-serif; fill: #c8cdd8; }
+    .note-title { font: 700 16px Arial, sans-serif; fill: #e8e8e8; }
+    .note-text  { font: 400 13px Arial, sans-serif; fill: #c8cdd8; }
+    .arrow  { stroke: #ed6622; stroke-width: 3; fill: none; marker-end: url(#arrowhead); }
+    .border { stroke: #3a3d4a; stroke-width: 2; }
+    .public   { fill: #0e1e2e; }
+    .pipeline { fill: #0e1e1a; }
+    .storage  { fill: #0e1a12; }
+    .ml       { fill: #1e0e1e; }
+    .app      { fill: #1e1200; }
+    .access   { fill: #130e1e; }
+    .panel    { fill: #1a1d27; stroke: #3a3d4a; stroke-width: 1.5; }
+  </style>
+
+  <defs>
+    <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#ed6622"/>
+    </marker>
+  </defs>
+
+  <rect width="1400" height="760" fill="#13151e"/>
+  <text x="50" y="50" class="title">SOFWERX Value Dashboard Architecture Overview</text>
+  <text x="50" y="80" class="subtitle">Public procurement data flows through ingestion, processing, model/scoring artifacts, and a private Streamlit analysis interface.</text>
+
+  <!-- Main flow boxes -->
+  <rect x="50" y="150" width="180" height="110" class="border public"/>
+  <text x="75" y="185" class="box-title">USAspending API</text>
+  <text x="75" y="210" class="box-text">Public federal</text>
+  <text x="75" y="230" class="box-text">procurement data</text>
+
+  <rect x="280" y="150" width="220" height="110" class="border pipeline"/>
+  <text x="305" y="185" class="box-title">Ingestion + Transform</text>
+  <text x="305" y="210" class="box-text">API pulls</text>
+  <text x="305" y="230" class="box-text">clean / normalize / enrich</text>
+
+  <rect x="550" y="150" width="220" height="110" class="border storage"/>
+  <text x="575" y="185" class="box-title">Processed Storage</text>
+  <text x="575" y="210" class="box-text">cleaned datasets</text>
+  <text x="575" y="230" class="box-text">comparable_contracts.parquet</text>
+
+  <rect x="820" y="150" width="220" height="110" class="border ml"/>
+  <text x="845" y="185" class="box-title">Model Artifacts</text>
+  <text x="845" y="210" class="box-text">metadata, evaluation,</text>
+  <text x="845" y="230" class="box-text">scoring outputs</text>
+
+  <rect x="1090" y="150" width="200" height="110" class="border app"/>
+  <text x="1115" y="185" class="box-title">Streamlit App</text>
+  <text x="1115" y="210" class="box-text">dashboard pages</text>
+  <text x="1115" y="230" class="box-text">interactive analysis</text>
+
+  <rect x="1090" y="330" width="200" height="110" class="border access"/>
+  <text x="1115" y="365" class="box-title">Private Access</text>
+  <text x="1115" y="390" class="box-text">internal / controlled</text>
+  <text x="1115" y="410" class="box-text">viewer access</text>
+
+  <!-- arrows -->
+  <path d="M230 205 L280 205" class="arrow"/>
+  <path d="M500 205 L550 205" class="arrow"/>
+  <path d="M770 205 L820 205" class="arrow"/>
+  <path d="M1040 205 L1090 205" class="arrow"/>
+  <path d="M1190 260 L1190 330" class="arrow"/>
+
+  <!-- Supporting artifact panel -->
+  <rect x="80" y="330" width="930" height="290" class="panel"/>
+  <text x="110" y="365" class="note-title">Supporting Project Layers</text>
+
+  <text x="110" y="405" class="box-title">Benchmark Construction</text>
+  <text x="110" y="428" class="box-text">" baseline rule screen (PSC / NAICS / keyword logic)</text>
+  <text x="110" y="450" class="box-text">" category mapping into SOFWERX-aligned service buckets</text>
+  <text x="110" y="472" class="box-text">" canonical comparable dataset builder</text>
+
+  <text x="500" y="405" class="box-title">ML + Scoring Layer</text>
+  <text x="500" y="428" class="box-text">" feature engineering + labeled relevance model</text>
+  <text x="500" y="450" class="box-text">" evaluation summaries and threshold review</text>
+  <text x="500" y="472" class="box-text">" scored dataset with relevance_score + metadata</text>
+
+  <text x="110" y="525" class="box-title">Business Outputs</text>
+  <text x="110" y="548" class="box-text">" KPI tables</text>
+  <text x="110" y="570" class="box-text">" scenario-based value calculator</text>
+  <text x="110" y="592" class="box-text">" executive / benchmark / methodology / monitoring pages</text>
+
+  <text x="500" y="525" class="box-title">Access / Security Posture</text>
+  <text x="500" y="548" class="box-text">" source data is public</text>
+  <text x="500" y="570" class="box-text">" processed artifacts and app deployment should remain controlled</text>
+  <text x="500" y="592" class="box-text">" intended for private/internal analysis rather than public publishing</text>
+
+  <!-- footer -->
+  <text x="50" y="705" class="subtitle">Conceptual architecture diagram for app documentation and review. Not a formal network security diagram.</text>
+</svg>

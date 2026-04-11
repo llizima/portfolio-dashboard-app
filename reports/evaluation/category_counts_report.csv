@@ -1,0 +1,11 @@
+mapped_service_category,row_count,ambiguous_count,average_mapper_score,percent_of_rows,ambiguous_pct_within_category
+project_program_support,1289,1,5.2273,76.9093,0.0776
+engineering_design_support,166,33,4.241,9.9045,19.8795
+unmapped,91,0,0.0,5.4296,0.0
+development_program_services,52,0,2.0,3.1026,0.0
+prototyping,31,11,3.5806,1.8496,35.4839
+professional_services_support,17,2,4.0588,1.0143,11.7647
+technical_advisory_services,17,4,4.1176,1.0143,23.5294
+event_hosting,11,1,5.3636,0.6563,9.0909
+integrated_service_delivery,1,1,3.0,0.0597,100.0
+workspace_collaboration,1,0,3.0,0.0597,0.0

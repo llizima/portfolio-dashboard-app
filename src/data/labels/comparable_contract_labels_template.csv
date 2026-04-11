@@ -1,0 +1,1 @@
+record_id,award_id,description,psc_code,naics_code,baseline_include_flag,baseline_primary_category,baseline_reason_codes,matched_keywords,relevance_label,category_label_optional,ambiguity_flag,confidence_level,second_review_needed,reviewer_id,review_date,reviewer_notes

@@ -1,0 +1,27 @@
+{
+  "total_rows": 29311,
+  "included_rows": 1764,
+  "review_rows": 12059,
+  "excluded_rows": 15488,
+  "included_pct": 6.0182,
+  "review_pct": 41.1416,
+  "excluded_pct": 52.8402,
+  "included_category_counts": {
+    "project_program_support": 1587,
+    "engineering_design_support": 79,
+    "prototyping": 56,
+    "event_hosting": 34,
+    "integrated_service_delivery": 6,
+    "workspace_collaboration": 2
+  },
+  "rule_score_distribution": {
+    "0": 15488,
+    "1": 7732,
+    "2": 4327,
+    "3": 140,
+    "4": 250,
+    "5": 1259,
+    "6": 34,
+    "7": 81
+  }
+}

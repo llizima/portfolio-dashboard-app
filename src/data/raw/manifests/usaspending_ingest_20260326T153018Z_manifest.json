@@ -1,0 +1,496 @@
+{
+  "run_id": "usaspending_ingest_20260326T153018Z",
+  "run_timestamp": "2026-03-26T15:52:09.523861+00:00",
+  "pipeline_name": "usaspending_raw_ingestion",
+  "source_system": "USAspending",
+  "endpoint": "api/v2/search/spending_by_award/",
+  "fiscal_years": [
+    2021,
+    2022,
+    2023,
+    2024
+  ],
+  "query_run_count": 12,
+  "successful_query_count": 12,
+  "failed_query_count": 0,
+  "total_records_across_queries": 95553,
+  "query_runs": [
+    {
+      "query_name": "ussocom_benchmark",
+      "description": "Primary benchmark pull for mission-aligned awards at the USSOCOM context level.",
+      "endpoint": "api/v2/search/spending_by_award/",
+      "payload_summary": {
+        "spending_level": "awards",
+        "limit": 100,
+        "sort": "Award Amount",
+        "order": "desc",
+        "fields_count": 18,
+        "award_type_codes": [
+          "A",
+          "B",
+          "C",
+          "D"
+        ],
+        "agency_count": 1,
+        "agencies": [
+          {
+            "type": "awarding",
+            "tier": "subtier",
+            "name": "U.S. Special Operations Command",
+            "toptier_name": "Department of Defense"
+          }
+        ],
+        "time_period": [
+          {
+            "start_date": "2020-10-01",
+            "end_date": "2021-09-30"
+          }
+        ]
+      },
+      "total_records": 4200,
+      "total_pages": 42,
+      "output_files": [
+        "C:\\Users\\laliz\\Desktop\\Internship\\SOFWERX\\Sofwerx_Value_Dashboard\\src\\data\\raw\\usaspending\\usaspending_ingest_20260326T153018Z\\ussocom_benchmark_fy2021_usaspending_ingest_20260326T153018Z_combined.json"
+      ],
+      "status": "success",
+      "error_message": null,
+      "save_mode": "combined",
+      "fiscal_year": 2021
+    },
+    {
+      "query_name": "dod_benchmark",
+      "description": "Secondary benchmark pull for broader DoD comparison.",
+      "endpoint": "api/v2/search/spending_by_award/",
+      "payload_summary": {
+        "spending_level": "awards",
+        "limit": 100,
+        "sort": "Award Amount",
+        "order": "desc",
+        "fields_count": 18,
+        "award_type_codes": [
+          "A",
+          "B",
+          "C",
+          "D"
+        ],
+        "agency_count": 1,
+        "agencies": [
+          {
+            "type": "awarding",
+            "tier": "toptier",
+            "name": "Department of Defense"
+          }
+        ],
+        "time_period": [
+          {
+            "start_date": "2020-10-01",
+            "end_date": "2021-09-30"
+          }
+        ]
+      },
+      "total_records": 10000,
+      "total_pages": 100,
+      "output_files": [
+        "C:\\Users\\laliz\\Desktop\\Internship\\SOFWERX\\Sofwerx_Value_Dashboard\\src\\data\\raw\\usaspending\\usaspending_ingest_20260326T153018Z\\dod_benchmark_fy2021_usaspending_ingest_20260326T153018Z_combined.json"
+      ],
+      "status": "success",
+      "error_message": null,
+      "save_mode": "combined",
+      "fiscal_year": 2021
+    },
+    {
+      "query_name": "federal_benchmark",
+      "description": "Broader federal benchmark comparison pull.",
+      "endpoint": "api/v2/search/spending_by_award/",
+      "payload_summary": {
+        "spending_level": "awards",
+        "limit": 100,
+        "sort": "Award Amount",
+        "order": "desc",
+        "fields_count": 18,
+        "award_type_codes": [
+          "A",
+          "B",
+          "C",
+          "D"
+        ],
+        "agency_count": 0,
+        "agencies": [],
+        "time_period": [
+          {
+            "start_date": "2020-10-01",
+            "end_date": "2021-09-30"
+          }
+        ]
+      },
+      "total_records": 10000,
+      "total_pages": 100,
+      "output_files": [
+        "C:\\Users\\laliz\\Desktop\\Internship\\SOFWERX\\Sofwerx_Value_Dashboard\\src\\data\\raw\\usaspending\\usaspending_ingest_20260326T153018Z\\federal_benchmark_fy2021_usaspending_ingest_20260326T153018Z_combined.json"
+      ],
+      "status": "success",
+      "error_message": null,
+      "save_mode": "combined",
+      "fiscal_year": 2021
+    },
+    {
+      "query_name": "ussocom_benchmark",
+      "description": "Primary benchmark pull for mission-aligned awards at the USSOCOM context level.",
+      "endpoint": "api/v2/search/spending_by_award/",
+      "payload_summary": {
+        "spending_level": "awards",
+        "limit": 100,
+        "sort": "Award Amount",
+        "order": "desc",
+        "fields_count": 18,
+        "award_type_codes": [
+          "A",
+          "B",
+          "C",
+          "D"
+        ],
+        "agency_count": 1,
+        "agencies": [
+          {
+            "type": "awarding",
+            "tier": "subtier",
+            "name": "U.S. Special Operations Command",
+            "toptier_name": "Department of Defense"
+          }
+        ],
+        "time_period": [
+          {
+            "start_date": "2021-10-01",
+            "end_date": "2022-09-30"
+          }
+        ]
+      },
+      "total_records": 3832,
+      "total_pages": 39,
+      "output_files": [
+        "C:\\Users\\laliz\\Desktop\\Internship\\SOFWERX\\Sofwerx_Value_Dashboard\\src\\data\\raw\\usaspending\\usaspending_ingest_20260326T153018Z\\ussocom_benchmark_fy2022_usaspending_ingest_20260326T153018Z_combined.json"
+      ],
+      "status": "success",
+      "error_message": null,
+      "save_mode": "combined",
+      "fiscal_year": 2022
+    },
+    {
+      "query_name": "dod_benchmark",
+      "description": "Secondary benchmark pull for broader DoD comparison.",
+      "endpoint": "api/v2/search/spending_by_award/",
+      "payload_summary": {
+        "spending_level": "awards",
+        "limit": 100,
+        "sort": "Award Amount",
+        "order": "desc",
+        "fields_count": 18,
+        "award_type_codes": [
+          "A",
+          "B",
+          "C",
+          "D"
+        ],
+        "agency_count": 1,
+        "agencies": [
+          {
+            "type": "awarding",
+            "tier": "toptier",
+            "name": "Department of Defense"
+          }
+        ],
+        "time_period": [
+          {
+            "start_date": "2021-10-01",
+            "end_date": "2022-09-30"
+          }
+        ]
+      },
+      "total_records": 10000,
+      "total_pages": 100,
+      "output_files": [
+        "C:\\Users\\laliz\\Desktop\\Internship\\SOFWERX\\Sofwerx_Value_Dashboard\\src\\data\\raw\\usaspending\\usaspending_ingest_20260326T153018Z\\dod_benchmark_fy2022_usaspending_ingest_20260326T153018Z_combined.json"
+      ],
+      "status": "success",
+      "error_message": null,
+      "save_mode": "combined",
+      "fiscal_year": 2022
+    },
+    {
+      "query_name": "federal_benchmark",
+      "description": "Broader federal benchmark comparison pull.",
+      "endpoint": "api/v2/search/spending_by_award/",
+      "payload_summary": {
+        "spending_level": "awards",
+        "limit": 100,
+        "sort": "Award Amount",
+        "order": "desc",
+        "fields_count": 18,
+        "award_type_codes": [
+          "A",
+          "B",
+          "C",
+          "D"
+        ],
+        "agency_count": 0,
+        "agencies": [],
+        "time_period": [
+          {
+            "start_date": "2021-10-01",
+            "end_date": "2022-09-30"
+          }
+        ]
+      },
+      "total_records": 10000,
+      "total_pages": 100,
+      "output_files": [
+        "C:\\Users\\laliz\\Desktop\\Internship\\SOFWERX\\Sofwerx_Value_Dashboard\\src\\data\\raw\\usaspending\\usaspending_ingest_20260326T153018Z\\federal_benchmark_fy2022_usaspending_ingest_20260326T153018Z_combined.json"
+      ],
+      "status": "success",
+      "error_message": null,
+      "save_mode": "combined",
+      "fiscal_year": 2022
+    },
+    {
+      "query_name": "ussocom_benchmark",
+      "description": "Primary benchmark pull for mission-aligned awards at the USSOCOM context level.",
+      "endpoint": "api/v2/search/spending_by_award/",
+      "payload_summary": {
+        "spending_level": "awards",
+        "limit": 100,
+        "sort": "Award Amount",
+        "order": "desc",
+        "fields_count": 18,
+        "award_type_codes": [
+          "A",
+          "B",
+          "C",
+          "D"
+        ],
+        "agency_count": 1,
+        "agencies": [
+          {
+            "type": "awarding",
+            "tier": "subtier",
+            "name": "U.S. Special Operations Command",
+            "toptier_name": "Department of Defense"
+          }
+        ],
+        "time_period": [
+          {
+            "start_date": "2022-10-01",
+            "end_date": "2023-09-30"
+          }
+        ]
+      },
+      "total_records": 3885,
+      "total_pages": 39,
+      "output_files": [
+        "C:\\Users\\laliz\\Desktop\\Internship\\SOFWERX\\Sofwerx_Value_Dashboard\\src\\data\\raw\\usaspending\\usaspending_ingest_20260326T153018Z\\ussocom_benchmark_fy2023_usaspending_ingest_20260326T153018Z_combined.json"
+      ],
+      "status": "success",
+      "error_message": null,
+      "save_mode": "combined",
+      "fiscal_year": 2023
+    },
+    {
+      "query_name": "dod_benchmark",
+      "description": "Secondary benchmark pull for broader DoD comparison.",
+      "endpoint": "api/v2/search/spending_by_award/",
+      "payload_summary": {
+        "spending_level": "awards",
+        "limit": 100,
+        "sort": "Award Amount",
+        "order": "desc",
+        "fields_count": 18,
+        "award_type_codes": [
+          "A",
+          "B",
+          "C",
+          "D"
+        ],
+        "agency_count": 1,
+        "agencies": [
+          {
+            "type": "awarding",
+            "tier": "toptier",
+            "name": "Department of Defense"
+          }
+        ],
+        "time_period": [
+          {
+            "start_date": "2022-10-01",
+            "end_date": "2023-09-30"
+          }
+        ]
+      },
+      "total_records": 10000,
+      "total_pages": 100,
+      "output_files": [
+        "C:\\Users\\laliz\\Desktop\\Internship\\SOFWERX\\Sofwerx_Value_Dashboard\\src\\data\\raw\\usaspending\\usaspending_ingest_20260326T153018Z\\dod_benchmark_fy2023_usaspending_ingest_20260326T153018Z_combined.json"
+      ],
+      "status": "success",
+      "error_message": null,
+      "save_mode": "combined",
+      "fiscal_year": 2023
+    },
+    {
+      "query_name": "federal_benchmark",
+      "description": "Broader federal benchmark comparison pull.",
+      "endpoint": "api/v2/search/spending_by_award/",
+      "payload_summary": {
+        "spending_level": "awards",
+        "limit": 100,
+        "sort": "Award Amount",
+        "order": "desc",
+        "fields_count": 18,
+        "award_type_codes": [
+          "A",
+          "B",
+          "C",
+          "D"
+        ],
+        "agency_count": 0,
+        "agencies": [],
+        "time_period": [
+          {
+            "start_date": "2022-10-01",
+            "end_date": "2023-09-30"
+          }
+        ]
+      },
+      "total_records": 10000,
+      "total_pages": 100,
+      "output_files": [
+        "C:\\Users\\laliz\\Desktop\\Internship\\SOFWERX\\Sofwerx_Value_Dashboard\\src\\data\\raw\\usaspending\\usaspending_ingest_20260326T153018Z\\federal_benchmark_fy2023_usaspending_ingest_20260326T153018Z_combined.json"
+      ],
+      "status": "success",
+      "error_message": null,
+      "save_mode": "combined",
+      "fiscal_year": 2023
+    },
+    {
+      "query_name": "ussocom_benchmark",
+      "description": "Primary benchmark pull for mission-aligned awards at the USSOCOM context level.",
+      "endpoint": "api/v2/search/spending_by_award/",
+      "payload_summary": {
+        "spending_level": "awards",
+        "limit": 100,
+        "sort": "Award Amount",
+        "order": "desc",
+        "fields_count": 18,
+        "award_type_codes": [
+          "A",
+          "B",
+          "C",
+          "D"
+        ],
+        "agency_count": 1,
+        "agencies": [
+          {
+            "type": "awarding",
+            "tier": "subtier",
+            "name": "U.S. Special Operations Command",
+            "toptier_name": "Department of Defense"
+          }
+        ],
+        "time_period": [
+          {
+            "start_date": "2023-10-01",
+            "end_date": "2024-09-30"
+          }
+        ]
+      },
+      "total_records": 3636,
+      "total_pages": 37,
+      "output_files": [
+        "C:\\Users\\laliz\\Desktop\\Internship\\SOFWERX\\Sofwerx_Value_Dashboard\\src\\data\\raw\\usaspending\\usaspending_ingest_20260326T153018Z\\ussocom_benchmark_fy2024_usaspending_ingest_20260326T153018Z_combined.json"
+      ],
+      "status": "success",
+      "error_message": null,
+      "save_mode": "combined",
+      "fiscal_year": 2024
+    },
+    {
+      "query_name": "dod_benchmark",
+      "description": "Secondary benchmark pull for broader DoD comparison.",
+      "endpoint": "api/v2/search/spending_by_award/",
+      "payload_summary": {
+        "spending_level": "awards",
+        "limit": 100,
+        "sort": "Award Amount",
+        "order": "desc",
+        "fields_count": 18,
+        "award_type_codes": [
+          "A",
+          "B",
+          "C",
+          "D"
+        ],
+        "agency_count": 1,
+        "agencies": [
+          {
+            "type": "awarding",
+            "tier": "toptier",
+            "name": "Department of Defense"
+          }
+        ],
+        "time_period": [
+          {
+            "start_date": "2023-10-01",
+            "end_date": "2024-09-30"
+          }
+        ]
+      },
+      "total_records": 10000,
+      "total_pages": 100,
+      "output_files": [
+        "C:\\Users\\laliz\\Desktop\\Internship\\SOFWERX\\Sofwerx_Value_Dashboard\\src\\data\\raw\\usaspending\\usaspending_ingest_20260326T153018Z\\dod_benchmark_fy2024_usaspending_ingest_20260326T153018Z_combined.json"
+      ],
+      "status": "success",
+      "error_message": null,
+      "save_mode": "combined",
+      "fiscal_year": 2024
+    },
+    {
+      "query_name": "federal_benchmark",
+      "description": "Broader federal benchmark comparison pull.",
+      "endpoint": "api/v2/search/spending_by_award/",
+      "payload_summary": {
+        "spending_level": "awards",
+        "limit": 100,
+        "sort": "Award Amount",
+        "order": "desc",
+        "fields_count": 18,
+        "award_type_codes": [
+          "A",
+          "B",
+          "C",
+          "D"
+        ],
+        "agency_count": 0,
+        "agencies": [],
+        "time_period": [
+          {
+            "start_date": "2023-10-01",
+            "end_date": "2024-09-30"
+          }
+        ]
+      },
+      "total_records": 10000,
+      "total_pages": 100,
+      "output_files": [
+        "C:\\Users\\laliz\\Desktop\\Internship\\SOFWERX\\Sofwerx_Value_Dashboard\\src\\data\\raw\\usaspending\\usaspending_ingest_20260326T153018Z\\federal_benchmark_fy2024_usaspending_ingest_20260326T153018Z_combined.json"
+      ],
+      "status": "success",
+      "error_message": null,
+      "save_mode": "combined",
+      "fiscal_year": 2024
+    }
+  ],
+  "notes": [
+    "This manifest records raw ingestion only.",
+    "Downstream extraction should normalize raw JSON into interim tabular outputs.",
+    "Downstream filtering/classification should implement proxy selection, taxonomy logic, and ML scoring."
+  ]
+}

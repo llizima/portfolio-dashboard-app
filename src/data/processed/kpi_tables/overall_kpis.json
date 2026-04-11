@@ -1,0 +1,22 @@
+{
+  "total_comparable_contracts": 1764,
+  "mapped_contract_count": 1585,
+  "unmapped_contract_count": 179,
+  "mapped_contract_pct": 89.8526,
+  "unmapped_contract_pct": 10.1474,
+  "manual_review_count": 53,
+  "valid_award_amount_count": 1764,
+  "total_award_amount": 136658417771.42001,
+  "mean_award_amount": 77470758.37382087,
+  "median_award_amount": 35662965.81,
+  "min_award_amount": 0.0,
+  "max_award_amount": 7873744571.48,
+  "award_amount_q1": 213027.63,
+  "award_amount_q3": 73263505.095,
+  "award_amount_iqr": 73050477.465,
+  "zero_award_amount_count": 4,
+  "negative_award_amount_count": 0,
+  "benchmark_low_q1": 213027.63,
+  "benchmark_median": 35662965.81,
+  "benchmark_high_q3": 73263505.095
+}

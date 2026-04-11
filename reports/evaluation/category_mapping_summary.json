@@ -1,0 +1,33 @@
+{
+  "total_rows": 1676,
+  "mapped_rows": 1585,
+  "unmapped_rows": 91,
+  "ambiguous_rows": 53,
+  "mapped_pct": 94.5704,
+  "unmapped_pct": 5.4296,
+  "ambiguous_pct": 3.1623,
+  "category_counts": {
+    "project_program_support": 1289,
+    "engineering_design_support": 166,
+    "unmapped": 91,
+    "development_program_services": 52,
+    "prototyping": 31,
+    "technical_advisory_services": 17,
+    "professional_services_support": 17,
+    "event_hosting": 11,
+    "integrated_service_delivery": 1,
+    "workspace_collaboration": 1
+  },
+  "score_distribution": {
+    "0": 91,
+    "2": 110,
+    "3": 765,
+    "4": 89,
+    "5": 18,
+    "6": 46,
+    "7": 5,
+    "8": 464,
+    "9": 3,
+    "10": 85
+  }
+}

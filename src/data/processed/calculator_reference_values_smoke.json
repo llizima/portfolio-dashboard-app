@@ -1,0 +1,301 @@
+{
+  "version": "1.0",
+  "module_name": "src.business.assumptions",
+  "purpose": "Centralized assumptions layer for scenario-based external benchmark value estimation.",
+  "benchmark_anchors": {
+    "reference_source": {
+      "source_type": "overall_comparable_contract_kpis",
+      "reference_dataset": "comparable_contracts",
+      "reference_metric_field": "award_amount",
+      "reference_basis": "overall comparable-contract distribution",
+      "benchmark_low_definition": "25th percentile (Q1)",
+      "benchmark_central_definition": "50th percentile (median)",
+      "benchmark_high_definition": "75th percentile (Q3)",
+      "notes": "These anchors are descriptive benchmark values derived from the current overall comparable-contract dataset. They support scenario-based external cost context and do not represent audited savings, internal cost data, or verified equivalent pricing for any single SOFWERX effort."
+    },
+    "low_reference_value": 316885.8675,
+    "central_reference_value": 30470594.47,
+    "high_reference_value": 66770481.5675
+  },
+  "scenario_notes": {
+    "low": "Represents a lower-bound benchmark-oriented estimate anchored to the lower quartile of the current comparable-contract distribution.",
+    "central": "Represents the default scenario anchored to the median of the current comparable-contract distribution.",
+    "high": "Represents an upper-bound benchmark-oriented estimate anchored to the upper quartile of the current comparable-contract distribution."
+  },
+  "scenario_multipliers": {
+    "low": {
+      "value_multiplier": 1.0,
+      "duration_multiplier": 0.9,
+      "scale_multiplier": 0.95,
+      "complexity_multiplier": 0.95,
+      "notes": "Low scenario keeps the benchmark anchor at the low reference value and applies modestly conservative duration, scale, and complexity defaults."
+    },
+    "central": {
+      "value_multiplier": 1.0,
+      "duration_multiplier": 1.0,
+      "scale_multiplier": 1.0,
+      "complexity_multiplier": 1.0,
+      "notes": "Central scenario is the default benchmark-oriented calculator view."
+    },
+    "high": {
+      "value_multiplier": 1.0,
+      "duration_multiplier": 1.1,
+      "scale_multiplier": 1.05,
+      "complexity_multiplier": 1.1,
+      "notes": "High scenario keeps the benchmark anchor at the high reference value and applies modest upward defaults to duration, scale, and complexity."
+    }
+  },
+  "default_assumptions": {
+    "default_category": "engineering_design_support",
+    "default_scenario": "central",
+    "default_duration_units": 6,
+    "default_duration_unit_label": "months",
+    "default_scale_factor": 1.0,
+    "default_complexity_factor": 1.0,
+    "allow_user_adjustment": true,
+    "user_adjustable_fields": [
+      "category_name",
+      "scenario",
+      "duration_units",
+      "scale_factor",
+      "complexity_factor"
+    ],
+    "benchmark_value_field": "award_amount",
+    "benchmark_reference_priority": [
+      "category-specific benchmark distributions when validated",
+      "otherwise current overall benchmark anchors"
+    ],
+    "interpretation_guardrail": "Outputs generated from these assumptions should be described as scenario-based external benchmark estimates, not audited savings, internal cost avoidance, or proven ROI."
+  },
+  "category_reference_values": {
+    "prototyping": {
+      "category_name": "prototyping",
+      "category_group": "technical_delivery",
+      "reference_value_basis": "provisional category profile using overall benchmark anchors plus explicit business-rule category modifier",
+      "low_reference_value": 348574.45,
+      "central_reference_value": 33517653.92,
+      "high_reference_value": 73447529.72,
+      "category_modifier": 1.1,
+      "default_duration_units": 6,
+      "default_scale_factor": 1.0,
+      "default_complexity_factor": 1.05,
+      "duration_unit_label": "months",
+      "adjustable_inputs": [
+        "scenario",
+        "duration_units",
+        "scale_factor",
+        "complexity_factor"
+      ],
+      "notes": "Prototyping often involves build/fabrication/integration activity, so a modest upward modifier is provided as a business-rule default.",
+      "defensibility_notes": "These category values are calculator defaults built from overall benchmark anchors. They should not be described as empirically validated category-specific distributions unless replaced later by category-level benchmark summaries."
+    },
+    "engineering_design_support": {
+      "category_name": "engineering_design_support",
+      "category_group": "technical_delivery",
+      "reference_value_basis": "provisional category profile using overall benchmark anchors plus explicit business-rule category modifier",
+      "low_reference_value": 316885.87,
+      "central_reference_value": 30470594.47,
+      "high_reference_value": 66770481.57,
+      "category_modifier": 1.0,
+      "default_duration_units": 6,
+      "default_scale_factor": 1.0,
+      "default_complexity_factor": 1.0,
+      "duration_unit_label": "months",
+      "adjustable_inputs": [
+        "scenario",
+        "duration_units",
+        "scale_factor",
+        "complexity_factor"
+      ],
+      "notes": "Engineering/design support is treated as the neutral reference category for technical analytical work.",
+      "defensibility_notes": "These category values are calculator defaults built from overall benchmark anchors. They should not be described as empirically validated category-specific distributions unless replaced later by category-level benchmark summaries."
+    },
+    "project_program_support": {
+      "category_name": "project_program_support",
+      "category_group": "program_support",
+      "reference_value_basis": "provisional category profile using overall benchmark anchors plus explicit business-rule category modifier",
+      "low_reference_value": 285197.28,
+      "central_reference_value": 27423535.02,
+      "high_reference_value": 60093433.41,
+      "category_modifier": 0.9,
+      "default_duration_units": 12,
+      "default_scale_factor": 1.0,
+      "default_complexity_factor": 0.95,
+      "duration_unit_label": "months",
+      "adjustable_inputs": [
+        "scenario",
+        "duration_units",
+        "scale_factor",
+        "complexity_factor"
+      ],
+      "notes": "Project/program support is assigned a modest downward modifier as a calculator default because it is typically less artifact-centric than prototyping or integrated technical delivery.",
+      "defensibility_notes": "These category values are calculator defaults built from overall benchmark anchors. They should not be described as empirically validated category-specific distributions unless replaced later by category-level benchmark summaries."
+    },
+    "event_hosting": {
+      "category_name": "event_hosting",
+      "category_group": "event_and_collaboration",
+      "reference_value_basis": "provisional category profile using overall benchmark anchors plus explicit business-rule category modifier",
+      "low_reference_value": 269352.99,
+      "central_reference_value": 25900005.3,
+      "high_reference_value": 56754909.33,
+      "category_modifier": 0.85,
+      "default_duration_units": 1,
+      "default_scale_factor": 1.0,
+      "default_complexity_factor": 0.9,
+      "duration_unit_label": "months",
+      "adjustable_inputs": [
+        "scenario",
+        "duration_units",
+        "scale_factor",
+        "complexity_factor"
+      ],
+      "notes": "Event hosting is treated as a shorter-duration, lower-complexity calculator profile by default.",
+      "defensibility_notes": "These category values are calculator defaults built from overall benchmark anchors. They should not be described as empirically validated category-specific distributions unless replaced later by category-level benchmark summaries."
+    },
+    "workspace_collaboration": {
+      "category_name": "workspace_collaboration",
+      "category_group": "event_and_collaboration",
+      "reference_value_basis": "provisional category profile using overall benchmark anchors plus explicit business-rule category modifier",
+      "low_reference_value": 253508.69,
+      "central_reference_value": 24376475.58,
+      "high_reference_value": 53416385.25,
+      "category_modifier": 0.8,
+      "default_duration_units": 3,
+      "default_scale_factor": 1.0,
+      "default_complexity_factor": 0.9,
+      "duration_unit_label": "months",
+      "adjustable_inputs": [
+        "scenario",
+        "duration_units",
+        "scale_factor",
+        "complexity_factor"
+      ],
+      "notes": "Workspace/collaboration is treated as an environment-access profile with relatively modest default complexity.",
+      "defensibility_notes": "These category values are calculator defaults built from overall benchmark anchors. They should not be described as empirically validated category-specific distributions unless replaced later by category-level benchmark summaries."
+    },
+    "innovation_ecosystem_access": {
+      "category_name": "innovation_ecosystem_access",
+      "category_group": "network_access",
+      "reference_value_basis": "provisional category profile using overall benchmark anchors plus explicit business-rule category modifier",
+      "low_reference_value": 301041.57,
+      "central_reference_value": 28947064.75,
+      "high_reference_value": 63431957.49,
+      "category_modifier": 0.95,
+      "default_duration_units": 6,
+      "default_scale_factor": 1.0,
+      "default_complexity_factor": 0.95,
+      "duration_unit_label": "months",
+      "adjustable_inputs": [
+        "scenario",
+        "duration_units",
+        "scale_factor",
+        "complexity_factor"
+      ],
+      "notes": "Innovation ecosystem access is treated as a network/scouting access profile with a slight downward default modifier relative to neutral.",
+      "defensibility_notes": "These category values are calculator defaults built from overall benchmark anchors. They should not be described as empirically validated category-specific distributions unless replaced later by category-level benchmark summaries."
+    },
+    "integrated_service_delivery": {
+      "category_name": "integrated_service_delivery",
+      "category_group": "bundled_delivery",
+      "reference_value_basis": "provisional category profile using overall benchmark anchors plus explicit business-rule category modifier",
+      "low_reference_value": 364418.75,
+      "central_reference_value": 35041183.64,
+      "high_reference_value": 76786053.8,
+      "category_modifier": 1.15,
+      "default_duration_units": 12,
+      "default_scale_factor": 1.0,
+      "default_complexity_factor": 1.1,
+      "duration_unit_label": "months",
+      "adjustable_inputs": [
+        "scenario",
+        "duration_units",
+        "scale_factor",
+        "complexity_factor"
+      ],
+      "notes": "Integrated service delivery bundles multiple service types, so it uses the largest conservative modifier among the current defaults.",
+      "defensibility_notes": "These category values are calculator defaults built from overall benchmark anchors. They should not be described as empirically validated category-specific distributions unless replaced later by category-level benchmark summaries."
+    },
+    "technical_advisory_services": {
+      "category_name": "technical_advisory_services",
+      "category_group": "advisory_support",
+      "reference_value_basis": "provisional category profile using overall benchmark anchors plus explicit business-rule category modifier",
+      "low_reference_value": 301041.57,
+      "central_reference_value": 28947064.75,
+      "high_reference_value": 63431957.49,
+      "category_modifier": 0.95,
+      "default_duration_units": 6,
+      "default_scale_factor": 1.0,
+      "default_complexity_factor": 0.95,
+      "duration_unit_label": "months",
+      "adjustable_inputs": [
+        "scenario",
+        "duration_units",
+        "scale_factor",
+        "complexity_factor"
+      ],
+      "notes": "Technical advisory services are treated as guidance-oriented work with modest complexity and a slightly conservative downward modifier.",
+      "defensibility_notes": "These category values are calculator defaults built from overall benchmark anchors. They should not be described as empirically validated category-specific distributions unless replaced later by category-level benchmark summaries."
+    },
+    "development_program_services": {
+      "category_name": "development_program_services",
+      "category_group": "program_delivery",
+      "reference_value_basis": "provisional category profile using overall benchmark anchors plus explicit business-rule category modifier",
+      "low_reference_value": 316885.87,
+      "central_reference_value": 30470594.47,
+      "high_reference_value": 66770481.57,
+      "category_modifier": 1.0,
+      "default_duration_units": 12,
+      "default_scale_factor": 1.0,
+      "default_complexity_factor": 1.0,
+      "duration_unit_label": "months",
+      "adjustable_inputs": [
+        "scenario",
+        "duration_units",
+        "scale_factor",
+        "complexity_factor"
+      ],
+      "notes": "Development program services are currently treated as a neutral calculator profile until category-specific benchmark values are validated.",
+      "defensibility_notes": "These category values are calculator defaults built from overall benchmark anchors. They should not be described as empirically validated category-specific distributions unless replaced later by category-level benchmark summaries."
+    },
+    "professional_services_support": {
+      "category_name": "professional_services_support",
+      "category_group": "general_support",
+      "reference_value_basis": "provisional category profile using overall benchmark anchors plus explicit business-rule category modifier",
+      "low_reference_value": 285197.28,
+      "central_reference_value": 27423535.02,
+      "high_reference_value": 60093433.41,
+      "category_modifier": 0.9,
+      "default_duration_units": 6,
+      "default_scale_factor": 1.0,
+      "default_complexity_factor": 0.95,
+      "duration_unit_label": "months",
+      "adjustable_inputs": [
+        "scenario",
+        "duration_units",
+        "scale_factor",
+        "complexity_factor"
+      ],
+      "notes": "Professional services support is treated as a modestly lower-cost support-oriented calculator profile by default.",
+      "defensibility_notes": "These category values are calculator defaults built from overall benchmark anchors. They should not be described as empirically validated category-specific distributions unless replaced later by category-level benchmark summaries."
+    }
+  },
+  "defensibility_summary": {
+    "benchmark_derived_components": [
+      "overall benchmark low reference (Q1)",
+      "overall benchmark central reference (median)",
+      "overall benchmark high reference (Q3)"
+    ],
+    "business_rule_components": [
+      "category modifiers",
+      "default duration assumptions",
+      "default scale assumptions",
+      "default complexity assumptions",
+      "scenario usability defaults"
+    ],
+    "non_claims": [
+      "This assumptions layer does not prove internal cost savings.",
+      "This assumptions layer does not produce audited ROI.",
+      "These category profiles are not category-specific empirical benchmark distributions unless replaced later by validated data."
+    ]
+  }
+}
