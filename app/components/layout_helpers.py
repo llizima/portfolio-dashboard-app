@@ -6,6 +6,18 @@ import streamlit as st
 
 from app.components.theme import inject_custom_css
 
+DATA_DISCLAIMER_PRIMARY = (
+    "Disclaimer: This dashboard is a demonstration prototype built using publicly available datasets "
+    "and synthetic data for illustrative purposes. Benchmark estimates are derived from publicly "
+    "accessible federal contract data, while internal cost values are simulated for comparison only "
+    "and do not represent real proprietary figures. This project was originally developed as part of "
+    "an internship submission and is presented here for educational and portfolio purposes only."
+)
+
+DATA_DISCLAIMER_CLOSING = (
+    "This dashboard should not be interpreted as an official valuation or procurement decision tool."
+)
+
 
 def _md(text: str) -> str:
     """
@@ -77,6 +89,27 @@ def render_scope_warning_box(message: str) -> None:
         <div class="swx-warn">
             <div class="swx-warn-tag">⚠ &nbsp;SCOPE BOUNDARY</div>
             <div class="swx-warn-body">{_md(message)}</div>
+        </div>
+        """,
+        unsafe_allow_html=True,
+    )
+
+
+def render_data_disclaimer_box() -> None:
+    """
+    Portfolio/demo notice: public benchmark data, synthetic internal comparisons, non-operational use.
+    Call after render_page_header() so themed CSS is already injected.
+    """
+    p1 = _html.escape(DATA_DISCLAIMER_PRIMARY)
+    p2 = _html.escape(DATA_DISCLAIMER_CLOSING)
+    st.markdown(
+        f"""
+        <div class="swx-disclaimer">
+            <div class="swx-disclaimer-tag">◆ &nbsp;DATA DISCLAIMER</div>
+            <div class="swx-disclaimer-body">
+                <p>{p1}</p>
+                <p>{p2}</p>
+            </div>
         </div>
         """,
         unsafe_allow_html=True,

@@ -566,6 +566,43 @@ def inject_custom_css() -> None:
             color: #d8b878 !important;
         }
 
+        /* ----- Data disclaimer (portfolio / demo notice) ----- */
+        .swx-disclaimer {
+            background: #0a0d14;
+            border: 1px solid #1a2430;
+            border-left: 3px solid #5a7a8c;
+            border-radius: 3px;
+            padding: 0.95rem 1.15rem;
+            margin: 0.85rem 0 1.25rem;
+        }
+
+        .swx-disclaimer-tag {
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 0.55rem;
+            font-weight: 600;
+            letter-spacing: 0.22em;
+            text-transform: uppercase;
+            color: #6d8fa3;
+            margin-bottom: 0.45rem;
+        }
+
+        .swx-disclaimer-body {
+            font-family: 'Barlow', sans-serif;
+            font-size: 0.87rem;
+            font-weight: 400;
+            color: #9aa8bc;
+            line-height: 1.65;
+        }
+
+        .swx-disclaimer-body p {
+            margin: 0 0 0.65rem;
+            color: #9aa8bc !important;
+        }
+
+        .swx-disclaimer-body p:last-child {
+            margin-bottom: 0;
+        }
+
         /* ----- Empty State ----- */
         .swx-empty {
             background: #0a0d15;

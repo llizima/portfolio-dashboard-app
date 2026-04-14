@@ -8,6 +8,7 @@ if str(PROJECT_ROOT) not in sys.path:
     sys.path.insert(0, str(PROJECT_ROOT))
 
 from app.components.layout_helpers import (
+    render_data_disclaimer_box,
     render_methodology_info_box,
     render_page_header,
     render_scope_warning_box,
@@ -30,6 +31,8 @@ st.markdown(
     comparable contract data, service category analysis, model methodology, and data quality outputs.
     """
 )
+
+render_data_disclaimer_box()
 
 st.subheader("App Sections")
 st.markdown(

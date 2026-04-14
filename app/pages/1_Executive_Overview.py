@@ -12,6 +12,7 @@ if str(PROJECT_ROOT) not in sys.path:
     sys.path.insert(0, str(PROJECT_ROOT))
 
 from app.components.layout_helpers import (
+    render_data_disclaimer_box,
     render_empty_data_message,
     render_methodology_info_box,
     render_metric_card,
@@ -147,6 +148,8 @@ def main() -> None:
             "and the practical value of the current benchmark dataset."
         ),
     )
+
+    render_data_disclaimer_box()
 
     scored_df = load_scored_dataset()
 
