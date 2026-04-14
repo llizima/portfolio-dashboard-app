@@ -4,7 +4,7 @@ Transparent baseline rule filters for comparable-contract benchmarking.
 Purpose
 -------
 This module implements the non-ML baseline comparable-contract screen for the
-SOFWERX Value Dashboard. It applies deterministic, inspectable rules using:
+Applied Government Analytics (AGA) Value Dashboard. It applies deterministic, inspectable rules using:
 
 - PSC code signals
 - NAICS code signals

@@ -1,1 +1,1 @@
-"""Machine learning utilities for the SOFWERX Value Dashboard."""
+"""Machine learning utilities for the Applied Government Analytics (AGA) Value Dashboard."""

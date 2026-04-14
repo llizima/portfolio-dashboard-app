@@ -353,7 +353,7 @@ This improves auditability and supports future monitoring pages that distinguish
 """
 
     markdown = f"""# Data Quality Report
-## SOFWERX External Cost Benchmarking & Value Estimation
+## Applied Government Analytics (AGA) External Cost Benchmarking & Value Estimation
 ## Task 7: Data Quality Evaluation
 
 ---
@@ -512,7 +512,7 @@ The transform stage normalizes and deduplicates data, but downstream relevance f
 ## Q1. What does comparable government work typically cost?
 **Support level: Moderate at this stage**
 
-The cleaned dataset is strong for basic award-level analysis because `award_amount` is complete and the usable-record rate is high. However, this is still a pre-filter dataset, so it includes records that are not yet validated as SOFWERX-like comparables.
+The cleaned dataset is strong for basic award-level analysis because `award_amount` is complete and the usable-record rate is high. However, this is still a pre-filter dataset, so it includes records that are not yet validated as AGA-like comparables.
 
 ## Q2. How much variability exists in comparable contract cost?
 **Support level: Moderate at this stage**
@@ -522,7 +522,7 @@ The data quality is sufficient for variability analysis, but not yet for compara
 ## Q3. How do costs differ across agencies?
 **Support level: Strong for raw agency comparison**
 
-Agency fields are complete enough to support raw agency segmentation well. But comparisons intended to support the SOFWERX narrative should eventually be based on filtered comparable subsets.
+Agency fields are complete enough to support raw agency segmentation well. But comparisons intended to support the AGA narrative should eventually be based on filtered comparable subsets.
 
 ## Q4. What is the estimated equivalent market value under selected scenarios?
 **Support level: Moderate, contingent on downstream comparable filtering**

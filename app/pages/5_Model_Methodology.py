@@ -404,7 +404,7 @@ The labeling framework emphasizes:
 
     render_scope_warning_box(
         "This methodology supports benchmark-derived external cost context. "
-        "It does not prove internal savings, audited ROI, or measured SOFWERX efficiency gains."
+        "It does not prove internal savings, audited ROI, or measured AGA efficiency gains."
     )
 
 

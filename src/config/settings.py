@@ -1,6 +1,6 @@
 """
 Centralized project configuration and path management for the
-SOFWERX Value Dashboard repository.
+Applied Government Analytics (AGA) Value Dashboard repository.
 
 This module defines repo-relative paths, environment-driven runtime
 settings, and lightweight helper utilities so that all other modules

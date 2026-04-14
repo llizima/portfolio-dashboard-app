@@ -14,14 +14,14 @@ from app.components.layout_helpers import (
 )
 
 st.set_page_config(
-    page_title="SOFWERX Value Dashboard",
+    page_title="Applied Government Analytics (AGA) Value Dashboard",
     page_icon="🔶",
     layout="wide",
 )
 
 render_page_header(
     "Value Dashboard",
-    "Benchmark-derived external cost context for SOFWERX procurement analysis.",
+    "Benchmark-derived external cost context for Applied Government Analytics (AGA) procurement analysis.",
 )
 
 st.markdown(

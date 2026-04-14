@@ -1,5 +1,5 @@
 """
-Canonical comparable-contract dataset builder for the SOFWERX Value Dashboard.
+Canonical comparable-contract dataset builder for the Applied Government Analytics (AGA) Value Dashboard.
 
 Purpose
 -------

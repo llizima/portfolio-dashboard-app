@@ -5,7 +5,7 @@ import streamlit as st
 
 def inject_custom_css() -> None:
     """
-    Inject SOFWERX-branded CSS into the current Streamlit page.
+    Inject Applied Government Analytics (AGA)-branded CSS into the current Streamlit page.
     Idempotent — safe to call multiple times per page load.
     """
     st.markdown(

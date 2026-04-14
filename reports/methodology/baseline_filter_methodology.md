@@ -1,5 +1,5 @@
 # Baseline Filter Methodology
-## SOFWERX Value Dashboard
+## Applied Government Analytics (AGA) Value Dashboard
 
 ---
 
@@ -7,7 +7,7 @@
 
 The baseline filter is the project’s first transparent comparable-contract benchmark screen before machine learning classification.
 
-Its purpose is to create a benchmark-derived subset of USAspending contract records that are plausibly relevant to SOFWERX-like work using simple, reviewable rules. This gives the project an explainable non-ML benchmark layer that can be inspected directly, challenged by reviewers, and compared later against ML-based classification results.
+Its purpose is to create a benchmark-derived subset of USAspending contract records that are plausibly relevant to AGA-like work using simple, reviewable rules. This gives the project an explainable non-ML benchmark layer that can be inspected directly, challenged by reviewers, and compared later against ML-based classification results.
 
 This stage is designed to support external benchmarking, not internal cost accounting, audited savings claims, or ROI certification.
 
@@ -148,7 +148,7 @@ This baseline filter is intentionally simple, so it has important limitations.
 Some truly comparable contracts may not contain the expected codes or keywords.
 
 ### 6.2 It may include some broad contracts
-Some contracts may look relevant because of general engineering or support language even when they are not strong SOFWERX-like comparables.
+Some contracts may look relevant because of general engineering or support language even when they are not strong AGA-like comparables.
 
 ### 6.3 It is not the final comparable set
 This baseline is an early benchmark screen, not the project’s final classification authority.

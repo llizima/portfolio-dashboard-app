@@ -25,7 +25,7 @@ def _md(text: str) -> str:
 
 def render_page_header(title: str, purpose: str) -> None:
     """
-    Render the SOFWERX-branded page hero header.
+    Render the Applied Government Analytics (AGA)-branded page hero header.
     Also injects global CSS and sidebar brand on every page.
     """
     inject_custom_css()
@@ -33,7 +33,7 @@ def render_page_header(title: str, purpose: str) -> None:
     st.markdown(
         f"""
         <div class="swx-page-header">
-            <div class="swx-header-eyebrow">// SOFWERX &nbsp;·&nbsp; VALUE DASHBOARD</div>
+            <div class="swx-header-eyebrow">// Applied Government Analytics (AGA) &nbsp;·&nbsp; VALUE DASHBOARD</div>
             <div class="swx-page-title">{_html.escape(title)}</div>
             <div class="swx-title-line"></div>
             <p class="swx-page-subtitle">{_html.escape(purpose)}</p>
@@ -47,9 +47,9 @@ def _render_sidebar_brand() -> None:
     st.sidebar.markdown(
         """
         <div class="swx-brand">
-            <div class="swx-brand-badge">SWX</div>
+            <div class="swx-brand-badge">AGA</div>
             <div>
-                <div class="swx-brand-name">SOFWERX</div>
+                <div class="swx-brand-name">Applied Government Analytics (AGA)</div>
                 <div class="swx-brand-sub">VALUE DASHBOARD</div>
             </div>
             <div class="swx-brand-dot"></div>
@@ -106,7 +106,7 @@ def render_metric_card(
     delta_positive: bool = True,
 ) -> None:
     """
-    Render a custom SOFWERX-branded metric card.
+    Render a custom Applied Government Analytics (AGA)-branded metric card.
     Call this inside a st.columns() context to match the standard column layout.
     """
     delta_html = ""

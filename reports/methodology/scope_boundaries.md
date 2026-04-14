@@ -1,4 +1,4 @@
-# SOFWERX External Cost Benchmarking & Value Estimation  
+# Applied Government Analytics (AGA) External Cost Benchmarking & Value Estimation  
 ## Scope Boundaries & Methodology Guardrails
 
 ---
@@ -10,7 +10,7 @@ This project provides a **data-driven external benchmark** of what comparable go
 Specifically, the application:
 
 - Uses publicly available federal procurement data (USAspending)
-- Identifies contracts comparable to SOFWERX-like services using:
+- Identifies contracts comparable to AGA-like services using:
   - PSC codes
   - NAICS codes
   - keyword filtering
@@ -33,10 +33,10 @@ Specifically, the application:
 
 This project explicitly does NOT:
 
-- Calculate or verify **internal SOFWERX cost savings**
+- Calculate or verify **internal Applied Government Analytics (AGA) cost savings**
 - Access or analyze **non-public financial data**
 - Evaluate **internal budget structures**
-- Measure **operational efficiency of SOFWERX**
+- Measure **operational efficiency of Applied Government Analytics (AGA)**
 - Compare **quality, outcomes, or mission effectiveness**
 - Provide **audited or accounting-grade financial conclusions**
 
@@ -126,7 +126,7 @@ Final benchmark dataset includes only:
 
 ### Out of Scope
 
-- Internal SOFWERX financial analysis  
+- internal Applied Government Analytics (AGA) financial analysis  
 - Cost accounting or auditing  
 - ROI calculations using internal data  
 - Performance or mission success comparisons  

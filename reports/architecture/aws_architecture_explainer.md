@@ -2,7 +2,7 @@
 
 ## Purpose
 
-This diagram shows a practical AWS-oriented deployment shape for the SOFWERX Value Dashboard.
+This diagram shows a practical AWS-oriented deployment shape for the Applied Government Analytics (AGA) Value Dashboard.
 
 It is intended to make the cloud design concrete without overclaiming production maturity.
 

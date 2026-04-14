@@ -1,5 +1,5 @@
 """
-Centralized scenario engine for the SOFWERX Value Dashboard business layer.
+Centralized scenario engine for the Applied Government Analytics (AGA) Value Dashboard business layer.
 
 This module defines reusable scenario presets that can be applied to a base
 calculator input payload before running benchmark/value estimation logic.

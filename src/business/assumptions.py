@@ -1,5 +1,5 @@
 """
-Centralized assumptions layer for the SOFWERX external benchmark/value
+Centralized assumptions layer for the Applied Government Analytics (AGA) external benchmark/value
 calculator.
 
 Purpose
@@ -19,7 +19,7 @@ It does NOT:
 - render Streamlit widgets
 - calculate final value estimates
 - claim savings, ROI, or internal cost avoidance
-- read internal SOFWERX financial data
+- read internal Applied Government Analytics (AGA) financial data
 - perform category-specific empirical benchmarking unless such values are
   explicitly available and validated
 
@@ -80,7 +80,7 @@ BENCHMARK_REFERENCE_SOURCE = {
         "current overall comparable-contract dataset. They support "
         "scenario-based external cost context and do not represent audited "
         "savings, internal cost data, or verified equivalent pricing for "
-        "any single SOFWERX effort."
+        "any single Applied Government Analytics (AGA) effort."
     ),
 }
 

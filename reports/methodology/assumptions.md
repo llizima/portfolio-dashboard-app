@@ -2,7 +2,7 @@
 
 ## Purpose
 
-This document defines the assumptions used in the SOFWERX external benchmark value calculator.
+This document defines the assumptions used in the Applied Government Analytics (AGA) external benchmark value calculator.
 
 The goal of the calculator is to provide:
 - scenario-based external benchmark estimates
@@ -183,7 +183,7 @@ They do NOT represent:
 - audited contract pricing  
 - universal prototype costs  
 - validated market rates  
-- internal SOFWERX costs  
+- internal Applied Government Analytics (AGA) costs  
 
 ---
 

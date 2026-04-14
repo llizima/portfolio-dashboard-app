@@ -1,10 +1,10 @@
-# SOFWERX Value Dashboard
+# Applied Government Analytics (AGA) Value Dashboard
 
 End-to-End Data Pipeline and Benchmarking Platform for Government Contract Analysis
 
 ## Overview
 
-The SOFWERX Value Dashboard is a full-stack data science application designed to benchmark internal prototype and event costs against federal contract data from USAspending.gov.
+The Applied Government Analytics (AGA) Value Dashboard is a full-stack data science application designed to benchmark internal prototype and event costs against federal contract data from USAspending.gov.
 
 It provides a structured, data-driven framework to estimate:
 
@@ -86,7 +86,7 @@ USAspending API
 ## Project Structure
 
 ```text
-SOFWERX_Value_Dashboard/
+Applied_Government_Analytics_Value_Dashboard/
 ├── app/
 │   ├── Home.py
 │   ├── pages/
@@ -188,7 +188,7 @@ This project is deployed as a Streamlit application for interactive use.
 ## Author
 
 Louis Lizima  
-Data Science and Engineering Intern — SOFWERX  
+Data Science and Engineering Intern — Applied Government Analytics (AGA)  
 M.S. Data Science — New College of Florida
 
 ## Future Improvements
@@ -198,4 +198,3 @@ M.S. Data Science — New College of Florida
 - Enhance classification accuracy
 - Automate data refresh pipeline
 - Optimize deployment performance
-g

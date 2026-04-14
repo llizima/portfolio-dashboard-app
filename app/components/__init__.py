@@ -1,2 +1,2 @@
-"""Shared UI components for the SOFWERX Value Dashboard."""
+"""Shared UI components for the Applied Government Analytics (AGA) Value Dashboard."""
 

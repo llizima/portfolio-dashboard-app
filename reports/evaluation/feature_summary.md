@@ -1,11 +1,11 @@
 # Feature Engineering Summary
-## SOFWERX Comparable-Contract Relevance Model
+## Applied Government Analytics (AGA) Comparable-Contract Relevance Model
 
 ---
 
 ## 1. Purpose
 
-This document summarizes the feature engineering module built for the SOFWERX comparable-contract relevance model.
+This document summarizes the feature engineering module built for the Applied Government Analytics (AGA) Comparable-Contract relevance model.
 
 The purpose of the module is to convert labeled contract records into reproducible model-ready inputs for later supervised learning experiments.
 

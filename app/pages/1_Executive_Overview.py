@@ -109,7 +109,7 @@ def _render_value_statement(metrics: dict[str, float | int]) -> None:
     st.markdown(
         f"""
         Out of **{total_records:,}** benchmark records currently available for executive review,
-        **{relevant_records:,}** were scored as potentially relevant to the SOFWERX value story.
+        **{relevant_records:,}** were scored as potentially relevant to the Applied Government Analytics (AGA) value story.
         That means approximately **{relevant_pct:.1f}%** of the current benchmark set is being carried
         forward as meaningful external cost context rather than background noise.
         """
@@ -118,7 +118,7 @@ def _render_value_statement(metrics: dict[str, float | int]) -> None:
     st.markdown(
         """
         This gives leadership a structured starting point for understanding what comparable external
-        work appears to cost in the broader market and how SOFWERX-delivered capability may compare
+        work appears to cost in the broader market and how Applied Government Analytics (AGA)-delivered capability may compare
         against that external context.
         """
     )

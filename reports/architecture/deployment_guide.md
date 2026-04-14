@@ -1,5 +1,5 @@
 # Deployment & Configuration Guide
-## SOFWERX Value Dashboard
+## Applied Government Analytics (AGA) Value Dashboard
 
 ## 1. Purpose
 
@@ -20,7 +20,7 @@ It is intentionally practical and repository-specific.
 
 ## 2. What This Project Is
 
-The SOFWERX Value Dashboard is a benchmark-driven analytics application that:
+The Applied Government Analytics (AGA) Value Dashboard is a benchmark-driven analytics application that:
 
 - ingests public federal procurement data
 - cleans and structures that data

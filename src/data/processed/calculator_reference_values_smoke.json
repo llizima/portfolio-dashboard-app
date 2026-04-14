@@ -11,7 +11,7 @@
       "benchmark_low_definition": "25th percentile (Q1)",
       "benchmark_central_definition": "50th percentile (median)",
       "benchmark_high_definition": "75th percentile (Q3)",
-      "notes": "These anchors are descriptive benchmark values derived from the current overall comparable-contract dataset. They support scenario-based external cost context and do not represent audited savings, internal cost data, or verified equivalent pricing for any single SOFWERX effort."
+      "notes": "These anchors are descriptive benchmark values derived from the current overall comparable-contract dataset. They support scenario-based external cost context and do not represent audited savings, internal cost data, or verified equivalent pricing for any single Applied Government Analytics (AGA) effort."
     },
     "low_reference_value": 316885.8675,
     "central_reference_value": 30470594.47,

@@ -1,5 +1,5 @@
 # KPI Summary
-## SOFWERX Value Dashboard
+## Applied Government Analytics (AGA) Value Dashboard
 
 ---
 
@@ -7,20 +7,20 @@
 
 This report summarizes the first reusable benchmark KPI outputs generated from the canonical comparable-contracts dataset.
 
-These outputs are descriptive benchmark summaries intended for downstream dashboard loading and evaluation use. They do not represent audited savings, ROI, or internal SOFWERX cost accounting.
+These outputs are descriptive benchmark summaries intended for downstream dashboard loading and evaluation use. They do not represent audited savings, ROI, or internal Applied Government Analytics (AGA) cost accounting.
 
 ## 2. Input Dataset
 
-- Source dataset: `C:\Users\laliz\Desktop\Internship\SOFWERX\Sofwerx_Value_Dashboard\src\data\processed\comparable_contracts.parquet`
+- Source dataset: `C:\Users\laliz\Desktop\Internship\Applied_Government_Analytics\AGA_Value_Dashboard\Value_Dashboard_DEPLOY\src\data\processed\comparable_contracts.parquet`
 - Total input rows: **1,764**
 
 ## 3. Output Artifacts
 
-- Overall KPI JSON: `C:\Users\laliz\Desktop\Internship\SOFWERX\Sofwerx_Value_Dashboard\src\data\processed\kpi_tables\overall_kpis.json`
-- Category KPI table: `C:\Users\laliz\Desktop\Internship\SOFWERX\Sofwerx_Value_Dashboard\src\data\processed\kpi_tables\category_kpis.parquet`
-- Yearly KPI table: `C:\Users\laliz\Desktop\Internship\SOFWERX\Sofwerx_Value_Dashboard\src\data\processed\kpi_tables\yearly_kpis.parquet`
-- Agency KPI table: `C:\Users\laliz\Desktop\Internship\SOFWERX\Sofwerx_Value_Dashboard\src\data\processed\kpi_tables\agency_kpis.parquet`
-- This report: `C:\Users\laliz\Desktop\Internship\SOFWERX\Sofwerx_Value_Dashboard\reports\evaluation\kpi_summary.md`
+- Overall KPI JSON: `C:\Users\laliz\Desktop\Internship\Applied_Government_Analytics\AGA_Value_Dashboard\Value_Dashboard_DEPLOY\src\data\processed\kpi_tables\overall_kpis.json`
+- Category KPI table: `C:\Users\laliz\Desktop\Internship\Applied_Government_Analytics\AGA_Value_Dashboard\Value_Dashboard_DEPLOY\src\data\processed\kpi_tables\category_kpis.parquet`
+- Yearly KPI table: `C:\Users\laliz\Desktop\Internship\Applied_Government_Analytics\AGA_Value_Dashboard\Value_Dashboard_DEPLOY\src\data\processed\kpi_tables\yearly_kpis.parquet`
+- Agency KPI table: `C:\Users\laliz\Desktop\Internship\Applied_Government_Analytics\AGA_Value_Dashboard\Value_Dashboard_DEPLOY\src\data\processed\kpi_tables\agency_kpis.parquet`
+- This report: `C:\Users\laliz\Desktop\Internship\Applied_Government_Analytics\AGA_Value_Dashboard\Value_Dashboard_DEPLOY\reports\evaluation\kpi_summary.md`
 
 ## 4. Headline Overall KPIs
 

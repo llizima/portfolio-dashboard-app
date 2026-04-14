@@ -6,7 +6,7 @@ Transparent service-category mapper for filtered comparable contracts.
 
 Purpose
 -------
-This module assigns SOFWERX-aligned service categories to already-filtered
+This module assigns AGA-aligned service categories to already-filtered
 comparable contract records. It sits downstream of the baseline comparable
 screen and converts each included contract into one final category or
 "unmapped" using deterministic, inspectable rules derived from the

@@ -1,2 +1,2 @@
-"""Streamlit app package for the SOFWERX Value Dashboard."""
+"""Streamlit app package for the Applied Government Analytics (AGA) Value Dashboard."""
 

@@ -6,9 +6,9 @@
   "join_key_used": "record_hash",
   "keep_all_rows": false,
   "input_paths": {
-    "baseline_input": "C:\\Users\\laliz\\Desktop\\Internship\\SOFWERX\\Sofwerx_Value_Dashboard\\src\\data\\processed\\usaspending_contracts_baseline_comparables_scored.parquet",
-    "mapped_input": "C:\\Users\\laliz\\Desktop\\Internship\\SOFWERX\\Sofwerx_Value_Dashboard\\src\\data\\processed\\usaspending_contracts_category_mapped.parquet",
-    "taxonomy_input": "C:\\Users\\laliz\\Desktop\\Internship\\SOFWERX\\Sofwerx_Value_Dashboard\\src\\config\\service_taxonomy.yaml"
+    "baseline_input": "C:\\Users\\laliz\\Desktop\\Internship\\Applied_Government_Analytics\\AGA_Value_Dashboard\\Value_Dashboard_DEPLOY\\src\\data\\processed\\usaspending_contracts_baseline_comparables_scored.parquet",
+    "mapped_input": "C:\\Users\\laliz\\Desktop\\Internship\\Applied_Government_Analytics\\AGA_Value_Dashboard\\Value_Dashboard_DEPLOY\\src\\data\\processed\\usaspending_contracts_category_mapped.parquet",
+    "taxonomy_input": "C:\\Users\\laliz\\Desktop\\Internship\\Applied_Government_Analytics\\AGA_Value_Dashboard\\Value_Dashboard_DEPLOY\\src\\config\\service_taxonomy.yaml"
   },
   "source_row_counts": {
     "baseline_rows": 29311,

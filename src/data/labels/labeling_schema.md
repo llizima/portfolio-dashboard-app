@@ -1,17 +1,17 @@
 # Comparable Contract Labeling Schema
-## SOFWERX Value Dashboard
+## Applied Government Analytics (AGA) Value Dashboard
 
 ---
 
 ## 1. Purpose
 
-This document defines the labeling schema for the future machine learning relevance model used in the SOFWERX Value Dashboard project.
+This document defines the labeling schema for the future machine learning relevance model used in the Applied Government Analytics (AGA) Value Dashboard project.
 
 The purpose of this schema is to support **consistent human labeling** of USAspending contract records so that future supervised ML work is trained on clear, reviewable, and defensible labels.
 
 This labeling system is designed to answer one primary question:
 
-> Is this contract record meaningfully relevant as a comparable external contract for SOFWERX-like services?
+> Is this contract record meaningfully relevant as a comparable external contract for AGA-like services?
 
 This schema is part of the project’s **external benchmark comparability** workflow. It does **not** support internal cost accounting, audited savings claims, ROI calculation, or internal efficiency measurement.
 
@@ -28,7 +28,7 @@ Only after relevance is determined should the reviewer optionally assign a servi
 These are two separate decisions:
 
 1. **Relevance label** = whether the record belongs in the comparable-contract benchmark problem
-2. **Category label (optional)** = what type of SOFWERX-like service the relevant record most closely represents
+2. **Category label (optional)** = what type of AGA-like service the relevant record most closely represents
 
 These must not be merged into one label.
 
@@ -52,7 +52,7 @@ These values should be used exactly as written.
 
 ### 4.1 `relevant`
 
-Assign `relevant` when the contract record appears meaningfully comparable to SOFWERX-like external work for benchmarking purposes.
+Assign `relevant` when the contract record appears meaningfully comparable to AGA-like external work for benchmarking purposes.
 
 A record should be labeled `relevant` when the available evidence suggests that the contract is primarily about one or more service types aligned with the project taxonomy, such as:
 
@@ -64,7 +64,7 @@ A record should be labeled `relevant` when the available evidence suggests that 
 - project/program support that is genuinely aligned to the benchmark scope
 - integrated service delivery spanning multiple aligned categories
 
-A record does **not** need to be a perfect SOFWERX match to be `relevant`.
+A record does **not** need to be a perfect AGA match to be `relevant`.
 
 It should be labeled `relevant` when a reasonable reviewer would say:
 
@@ -74,7 +74,7 @@ It should be labeled `relevant` when a reasonable reviewer would say:
 
 ### 4.2 `not_relevant`
 
-Assign `not_relevant` when the contract record is not meaningfully comparable to SOFWERX-like external work for benchmark purposes.
+Assign `not_relevant` when the contract record is not meaningfully comparable to AGA-like external work for benchmark purposes.
 
 A record should be labeled `not_relevant` when:
 
@@ -155,7 +155,7 @@ Examples:
 ### 5.6 Project / Program Support
 Examples:
 - project coordination, reporting, or scheduling support that is clearly tied to benchmark-relevant technical/service delivery
-- program support contracts that are genuinely aligned with SOFWERX-like external service structures rather than generic admin support
+- program support contracts that are genuinely aligned with AGA-like external service structures rather than generic admin support
 
 ### 5.7 Integrated Service Delivery
 Examples:
@@ -175,7 +175,7 @@ Examples:
 - generic office support
 - broad administrative staffing with no meaningful benchmark relevance
 - unrelated sustainment-heavy work
-- generic management consulting not aligned to SOFWERX-like services
+- generic management consulting not aligned to AGA-like services
 - custodial, routine facilities maintenance, or unrelated operational support
 - unrelated construction or procurement activity
 - records whose only relevance comes from a single broad keyword such as “support,” “engineering,” or “development” without meaningful contextual alignment

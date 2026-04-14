@@ -1,5 +1,5 @@
 """
-Reusable KPI generation for the SOFWERX Value Dashboard benchmark layer.
+Reusable KPI generation for the Applied Government Analytics (AGA) Value Dashboard benchmark layer.
 
 Purpose
 -------
@@ -432,7 +432,7 @@ def build_kpi_summary_markdown(
     lines: list[str] = []
 
     lines.append("# KPI Summary")
-    lines.append("## SOFWERX Value Dashboard")
+    lines.append("## Applied Government Analytics (AGA) Value Dashboard")
     lines.append("")
     lines.append("---")
     lines.append("")
@@ -446,7 +446,7 @@ def build_kpi_summary_markdown(
     lines.append(
         "These outputs are descriptive benchmark summaries intended for downstream "
         "dashboard loading and evaluation use. They do not represent audited savings, "
-        "ROI, or internal SOFWERX cost accounting."
+        "ROI, or internal Applied Government Analytics (AGA) cost accounting."
     )
     lines.append("")
     lines.append("## 2. Input Dataset")

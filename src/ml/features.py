@@ -1,5 +1,5 @@
 """
-Feature engineering module for the SOFWERX comparable-contract relevance model.
+Feature engineering module for the Applied Government Analytics (AGA) comparable-contract relevance model.
 
 Purpose
 -------

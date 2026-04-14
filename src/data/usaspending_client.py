@@ -1,5 +1,5 @@
 """
-Reusable USAspending API client for the SOFWERX Value Dashboard project.
+Reusable USAspending API client for the Applied Government Analytics (AGA) Value Dashboard project.
 
 This module provides a production-minded request layer for USAspending
 endpoints, beginning with the spending_by_award search endpoint used by the

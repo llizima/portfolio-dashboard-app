@@ -1,5 +1,5 @@
 # Service Taxonomy Notes
-## SOFWERX Value Dashboard
+## Applied Government Analytics (AGA) Value Dashboard
 
 ---
 

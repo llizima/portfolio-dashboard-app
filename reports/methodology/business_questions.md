@@ -1,11 +1,11 @@
-# SOFWERX External Cost Benchmarking & Value Estimation  
+# Applied Government Analytics (AGA) External Cost Benchmarking & Value Estimation  
 ## Business Questions & KPI Framework
 
 ---
 
 ## 1. Project Purpose
 
-This project provides a data-driven, external benchmark of what comparable government engineering, prototyping, and technical support work costs under traditional contracting structures. It enables leadership to understand cost distributions, variability, and estimated equivalent market value relative to SOFWERX-supported efforts.
+This project provides a data-driven, external benchmark of what comparable government engineering, prototyping, and technical support work costs under traditional contracting structures. It enables leadership to understand cost distributions, variability, and estimated equivalent market value relative to Applied Government Analytics (AGA)-supported efforts.
 
 The application supports decision-making around funding, utilization, and strategic positioning by translating public procurement data into actionable insights.
 
@@ -13,7 +13,7 @@ The application supports decision-making around funding, utilization, and strate
 
 ## 2. Stakeholders
 
-- SOFWERX Leadership  
+- Applied Government Analytics (AGA) Leadership  
 - Senior Military Officers (Funding Authorities)  
 - Civil Service Program Managers  
 - Congressional Oversight / Budget Review  
@@ -54,7 +54,7 @@ The application supports decision-making around funding, utilization, and strate
 ### **Q3. How do contract costs differ across agencies (USSOCOM vs DoD vs Federal)?**
 
 - **Stakeholder:** Leadership, Program Managers  
-- **Why it Matters:** Determines whether SOFWERX operates in a cost environment that is typical or more efficient relative to peers  
+- **Why it Matters:** Determines whether Applied Government Analytics (AGA) operates in a cost environment that is typical or more efficient relative to peers  
 - **KPI / Metric:**
   - Median cost by agency level  
   - Cost distribution comparison (boxplots)  
@@ -63,7 +63,7 @@ The application supports decision-making around funding, utilization, and strate
 
 ---
 
-### **Q4. What is the estimated equivalent market value of SOFWERX-like services under different scenarios?**
+### **Q4. What is the estimated equivalent market value of AGA-like services under different scenarios?**
 
 - **Stakeholder:** Leadership, Congressional Oversight  
 - **Why it Matters:** Enables decision-makers to simulate how different assumptions impact estimated external costs and perceived value  

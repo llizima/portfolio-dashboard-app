@@ -1,5 +1,5 @@
 # ML Labeling Guide
-## Comparable Contract Relevance Review Guide for the SOFWERX Value Dashboard
+## Comparable Contract Relevance Review Guide for the Applied Government Analytics (AGA) Value Dashboard
 
 ---
 
@@ -32,7 +32,7 @@ This guide supports the project’s benchmark methodology. It does **not** suppo
 
 The reviewer is making one primary decision:
 
-> Is this record meaningfully relevant as a comparable external contract for SOFWERX-like services?
+> Is this record meaningfully relevant as a comparable external contract for AGA-like services?
 
 This is the **relevance decision**.
 
@@ -141,17 +141,17 @@ Use `reviewer_notes` to explain:
 
 Notes should stay factual and benchmark-focused.
 
-Do not use notes to make unsupported claims about savings, ROI, or internal SOFWERX efficiency.
+Do not use notes to make unsupported claims about savings, ROI, or internal AGA efficiency.
 
 ---
 
 ## 5. How to Decide `relevant`
 
-Assign `relevant` when the record appears meaningfully comparable to SOFWERX-like externally contracted work.
+Assign `relevant` when the record appears meaningfully comparable to AGA-like externally contracted work.
 
 A useful test is:
 
-> Would a reasonable reviewer say this belongs in the benchmark comparison universe for SOFWERX-like services?
+> Would a reasonable reviewer say this belongs in the benchmark comparison universe for AGA-like services?
 
 Examples of evidence that often support `relevant`:
 
@@ -164,7 +164,7 @@ Examples of evidence that often support `relevant`:
 - integrated contracts that combine multiple relevant services
 
 Remember:
-`relevant` does not mean “identical to SOFWERX.”
+`relevant` does not mean “identical to a specific Applied Government Analytics (AGA) internal effort.”
 
 It means “close enough in type of externally contracted work to belong in the benchmark set.”
 
@@ -172,7 +172,7 @@ It means “close enough in type of externally contracted work to belong in the 
 
 ## 6. How to Decide `not_relevant`
 
-Assign `not_relevant` when the contract is not meaningfully comparable to SOFWERX-like external work.
+Assign `not_relevant` when the contract is not meaningfully comparable to AGA-like external work.
 
 Examples that often support `not_relevant`:
 

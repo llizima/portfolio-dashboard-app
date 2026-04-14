@@ -1,6 +1,6 @@
 """
 Deterministic external procurement equivalent calculator for the
-SOFWERX Value Dashboard.
+Applied Government Analytics (AGA) Value Dashboard.
 
 Purpose
 -------
@@ -19,7 +19,7 @@ It does NOT:
 - render Streamlit widgets
 - perform internal cost accounting
 - claim audited savings or ROI
-- read internal SOFWERX financial records
+- read internal Applied Government Analytics (AGA) financial records
 """
 
 from __future__ import annotations

@@ -118,7 +118,7 @@ They should **not** be interpreted as:
 
 - audited savings
 - ROI
-- internal SOFWERX cost accounting
+- internal Applied Government Analytics (AGA) cost accounting
 - proven cost avoidance
 - accounting-grade financial conclusions
 

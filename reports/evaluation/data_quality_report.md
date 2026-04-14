@@ -1,5 +1,5 @@
 # Data Quality Report
-## SOFWERX External Cost Benchmarking & Value Estimation
+## Applied Government Analytics (AGA) External Cost Benchmarking & Value Estimation
 ## Task 7: Data Quality Evaluation
 
 ---
@@ -23,8 +23,8 @@ Processed USAspending contract data generated from the current full ingestion ru
 - Cleaned row count: **29,311**
 - Duplicate rows flagged: **66,242**
 - Duplicate rows removed: **66,242**
-- Output dataset: `C:\Users\laliz\Desktop\Internship\SOFWERX\Sofwerx_Value_Dashboard\src\data\processed\usaspending_contracts_cleaned.parquet`
-- Missingness summary: `C:\Users\laliz\Desktop\Internship\SOFWERX\Sofwerx_Value_Dashboard\src\data\processed\usaspending_contracts_cleaned_missingness.csv`
+- Output dataset: `C:\Users\laliz\Desktop\Internship\Applied_Government_Analytics\AGA_Value_Dashboard\Value_Dashboard_DEPLOY\src\data\processed\usaspending_contracts_cleaned.parquet`
+- Missingness summary: `C:\Users\laliz\Desktop\Internship\Applied_Government_Analytics\AGA_Value_Dashboard\Value_Dashboard_DEPLOY\src\data\processed\usaspending_contracts_cleaned_missingness.csv`
 
 ### Interpretation
 The transform stage reduced the dataset from 95,553 raw rows to 29,311 cleaned rows by removing 66,242 duplicates. That means roughly **69.3% of raw rows were removed as duplicates**, leaving about **30.7% retained** for the cleaned analytical dataset.
@@ -250,7 +250,7 @@ The transform stage normalizes and deduplicates data, but downstream relevance f
 ## Q1. What does comparable government work typically cost?
 **Support level: Moderate at this stage**
 
-The cleaned dataset is strong for basic award-level analysis because `award_amount` is complete and the usable-record rate is high. However, this is still a pre-filter dataset, so it includes records that are not yet validated as SOFWERX-like comparables.
+The cleaned dataset is strong for basic award-level analysis because `award_amount` is complete and the usable-record rate is high. However, this is still a pre-filter dataset, so it includes records that are not yet validated as AGA-like comparables.
 
 ## Q2. How much variability exists in comparable contract cost?
 **Support level: Moderate at this stage**
@@ -260,7 +260,7 @@ The data quality is sufficient for variability analysis, but not yet for compara
 ## Q3. How do costs differ across agencies?
 **Support level: Strong for raw agency comparison**
 
-Agency fields are complete enough to support raw agency segmentation well. But comparisons intended to support the SOFWERX narrative should eventually be based on filtered comparable subsets.
+Agency fields are complete enough to support raw agency segmentation well. But comparisons intended to support the AGA narrative should eventually be based on filtered comparable subsets.
 
 ## Q4. What is the estimated equivalent market value under selected scenarios?
 **Support level: Moderate, contingent on downstream comparable filtering**
