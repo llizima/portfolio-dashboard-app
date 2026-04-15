@@ -1,6 +1,6 @@
 # Executive dummy dashboard — KPI calculations (locked)
 
-These definitions are **normative** for any UI that consumes `exec_dummy_data.csv` / `exec_dummy_data.df`.  
+These definitions are **normative** for any UI that consumes `src/data/demo/exec_dummy_data.csv` / `exec_dummy_data.df` (modules `src/data/demo/exec_dummy_data.py` and `src/data/demo/exec_dummy_kpis.py` on `sys.path`).  
 Do not substitute alternate formulas for the same label without changing this document and the paired Python module.
 
 **Symbols:** Let \(D\) be the dataframe after applying **global filters** (date range, optional `service_category` multi-select). If \(D\) is empty, KPIs are undefined; show empty state, not zeros-as-if-valid.

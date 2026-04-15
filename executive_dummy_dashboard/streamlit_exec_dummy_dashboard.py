@@ -15,9 +15,9 @@ import streamlit as st
 
 _HERE = Path(__file__).resolve().parent
 _ROOT = _HERE.parent
-for p in (_ROOT, _HERE):
-    if str(p) not in sys.path:
-        sys.path.insert(0, str(p))
+_DEMO_DATA = _ROOT / "src" / "data" / "demo"
+if str(_DEMO_DATA) not in sys.path:
+    sys.path.insert(0, str(_DEMO_DATA))
 
 import exec_dummy_data  # noqa: E402
 import exec_dummy_kpis as kpi  # noqa: E402

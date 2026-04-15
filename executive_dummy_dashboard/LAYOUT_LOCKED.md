@@ -81,7 +81,7 @@ Structured one-page layout. No implementation code.
 
 - **Executive takeaway text box**  
   - **Placement:** Directly below the table within the same right-hand column.  
-  - **Content rules:** `INSIGHT_PANEL_CONTROLLED_TEXT.md`; numeric tokens only from `KPI_FORMULAS_LOCKED.md` / `exec_dummy_kpis.py`.
+  - **Content rules:** `INSIGHT_PANEL_CONTROLLED_TEXT.md`; numeric tokens only from `KPI_FORMULAS_LOCKED.md` / `src/data/demo/exec_dummy_kpis.py`.
 
 ---
 

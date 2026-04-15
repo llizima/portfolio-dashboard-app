@@ -11,228 +11,241 @@ PROJECT_ROOT = Path(__file__).resolve().parents[2]
 if str(PROJECT_ROOT) not in sys.path:
     sys.path.insert(0, str(PROJECT_ROOT))
 
+_EXEC_DUMMY_DATA_DIR = PROJECT_ROOT / "src" / "data" / "demo"
+if str(_EXEC_DUMMY_DATA_DIR) not in sys.path:
+    sys.path.insert(0, str(_EXEC_DUMMY_DATA_DIR))
+
+import exec_dummy_data  # noqa: E402
+import exec_dummy_kpis as _exec_dummy_kpi  # noqa: E402
+
 from app.components.layout_helpers import (
     render_data_disclaimer_box,
-    render_empty_data_message,
-    render_methodology_info_box,
-    render_metric_card,
     render_page_header,
     render_scope_warning_box,
 )
-from app.components.loaders import (
-    load_comparable_contracts,
-    load_scored_dataset,
-)
+
+_DUMMY_TABLE_COLS = [
+    "service_category",
+    "internal_count",
+    "internal_avg_cost",
+    "benchmark_avg_cost",
+    "estimated_cost_avoidance",
+    "efficiency_percent",
+]
 
 
-def _safe_pct(numerator: int, denominator: int) -> float:
-    if denominator == 0:
-        return 0.0
-    return (numerator / denominator) * 100.0
-
-
-def _build_executive_metrics(scored_df: pd.DataFrame) -> dict[str, float | int]:
-    total_records = int(len(scored_df))
-
-    if "predicted_relevance_label" in scored_df.columns:
-        relevant_records = int((scored_df["predicted_relevance_label"] == 1).sum())
-    else:
-        relevant_records = 0
-
-    non_relevant_records = total_records - relevant_records
-
-    if "relevance_score" in scored_df.columns and not scored_df["relevance_score"].empty:
-        average_score = float(scored_df["relevance_score"].mean())
-    else:
-        average_score = 0.0
-
-    relevant_pct = _safe_pct(relevant_records, total_records)
-
-    return {
-        "total_records": total_records,
-        "relevant_records": relevant_records,
-        "non_relevant_records": non_relevant_records,
-        "average_score": average_score,
-        "relevant_pct": relevant_pct,
-    }
-
-
-def _render_kpi_cards(metrics: dict[str, float | int]) -> None:
-    col1, col2, col3, col4 = st.columns(4)
-
-    with col1:
-        render_metric_card("Benchmark Records", f"{int(metrics['total_records']):,}")
-    with col2:
-        render_metric_card("Predicted Relevant", f"{int(metrics['relevant_records']):,}")
-    with col3:
-        render_metric_card("Relevant Share", f"{metrics['relevant_pct']:.1f}%")
-    with col4:
-        render_metric_card("Avg Relevance Score", f"{metrics['average_score']:.3f}")
-
-
-def _render_summary_chart(metrics: dict[str, float | int]) -> None:
-    chart_df = pd.DataFrame(
-        {
-            "label": ["Predicted Relevant", "Predicted Non-Relevant"],
-            "count": [
-                int(metrics["relevant_records"]),
-                int(metrics["non_relevant_records"]),
-            ],
-        }
-    )
-
-    st.subheader("Benchmark Relevance Summary")
-    st.caption(
-        "This chart shows how the full benchmark dataset is reduced to a smaller, more decision-useful subset of comparable contracts."
-    )
-    chart = (
-        alt.Chart(chart_df)
-        .mark_bar(color="#ed6622", cornerRadiusTopLeft=4, cornerRadiusTopRight=4)
-        .encode(
-            x=alt.X("label:N", axis=alt.Axis(labelColor="#8a8fa8", titleColor="#8a8fa8", labelAngle=0), title=None),
-            y=alt.Y("count:Q", axis=alt.Axis(labelColor="#8a8fa8", titleColor="#8a8fa8", gridColor="#2a2d3a"), title="Records"),
-            tooltip=["label:N", "count:Q"],
-        )
-        .properties(background="#1a1d27", padding={"left": 10, "right": 10, "top": 10, "bottom": 10})
-        .configure_view(strokeWidth=0)
-        .configure_axis(domainColor="#3a3d4a")
-    )
-    st.altair_chart(chart, width="stretch")
-
-
-def _render_value_statement(metrics: dict[str, float | int]) -> None:
-    total_records = int(metrics["total_records"])
-    relevant_records = int(metrics["relevant_records"])
-    relevant_pct = float(metrics["relevant_pct"])
-
-    st.subheader("Value Statement")
-
+def _render_executive_overview_paragraphs() -> None:
+    """Two static overview paragraphs (portfolio framing) before the dummy dashboard."""
     st.markdown(
-        f"""
-        Out of **{total_records:,}** benchmark records currently available for executive review,
-        **{relevant_records:,}** were scored as potentially relevant to the Applied Government Analytics (AGA) value story.
-        That means approximately **{relevant_pct:.1f}%** of the current benchmark set is being carried
-        forward as meaningful external cost context rather than background noise.
+        """
+        This page leads with an **illustrative portfolio dashboard** built from synthetic internal and
+        benchmark rows so reviewers can validate executive KPIs, category value concentration, timing,
+        and event-funnel shape before production feeds replace the dummy slice.
         """
     )
-
     st.markdown(
         """
         This gives leadership a structured starting point for understanding what comparable external
-        work appears to cost in the broader market and how Applied Government Analytics (AGA)-delivered capability may compare
-        against that external context.
+        work appears to cost in the broader market and how Applied Government Analytics (AGA)-delivered
+        capability may compare against that external context.
         """
     )
 
 
-def _render_what_this_means_box(metrics: dict[str, float | int]) -> None:
-    relevant_records = int(metrics["relevant_records"])
-    total_records = int(metrics["total_records"])
-    relevant_pct = float(metrics["relevant_pct"])
+def _dummy_month_range_ui(df: pd.DataFrame) -> list[str]:
+    months = sorted(df["month"].unique().tolist())
+    c1, c2 = st.columns(2)
+    with c1:
+        lo = st.selectbox("Month from", months, index=0, key="exec_dummy_month_lo")
+    with c2:
+        hi = st.selectbox("Month through", months, index=len(months) - 1, key="exec_dummy_month_hi")
+    if months.index(lo) > months.index(hi):
+        lo, hi = hi, lo
+    i0, i1 = months.index(lo), months.index(hi)
+    return months[i0 : i1 + 1]
 
-    render_methodology_info_box(
-        (
-            f"What this means: {relevant_records:,} out of {total_records:,} benchmark records "
-            f"({relevant_pct:.1f}%) are considered sufficiently comparable to support external benchmarking. "
-            "This reflects a structured filtering and scoring process designed to isolate meaningful external cost signals. "
-            "This is not a claim of savings or ROI, but a defensible narrowing of a broad market dataset into a more decision-useful benchmark reference."
+
+def _render_dummy_executive_dashboard_section() -> None:
+    """Locked-layout dummy executive view (exec_dummy_data + exec_dummy_kpis; Altair)."""
+    st.subheader("Executive value view (illustrative dummy data)")
+    st.caption(
+        "Illustrative benchmark pairing for leadership layout review; not operational accounting."
+    )
+
+    df = exec_dummy_data.df.copy()
+    months = _dummy_month_range_ui(df)
+    cats = sorted(df["service_category"].unique().tolist())
+    sel_cat = st.multiselect("Service categories", cats, default=cats, key="exec_dummy_categories")
+
+    d = _exec_dummy_kpi.apply_filters(df, months=months, categories=sel_cat if sel_cat else None)
+    kpis = _exec_dummy_kpi.compute_executive_kpis(d)
+
+    if kpis is None:
+        st.info("No data in view for the current dummy filters.")
+        return
+
+    k1, k2, k3, k4, k5 = st.columns(5)
+    with k1:
+        st.metric("Total Internal Cost", _exec_dummy_kpi.fmt_currency(kpis.total_internal_cost))
+    with k2:
+        st.metric(
+            "Total Benchmark Equivalent Cost",
+            _exec_dummy_kpi.fmt_currency(kpis.total_benchmark_equivalent_cost),
+        )
+    with k3:
+        st.metric("Total Cost Avoidance", _exec_dummy_kpi.fmt_currency(kpis.total_cost_avoidance))
+    with k4:
+        st.metric("Average Efficiency %", _exec_dummy_kpi.fmt_pct_one(kpis.average_efficiency_percent))
+    with k5:
+        st.metric("Total Services Delivered", f"{kpis.total_services_delivered:,}")
+
+    if not _exec_dummy_kpi.avoidance_identity_holds(d):
+        st.warning("Avoidance identity check failed for current slice (see KPI_FORMULAS_LOCKED.md).")
+
+    st.divider()
+    r2l, r2r = st.columns(2)
+    av = (
+        d.groupby("service_category", as_index=False)
+        .agg(
+            internal_avg_cost=("internal_avg_cost", "mean"),
+            benchmark_avg_cost=("benchmark_avg_cost", "mean"),
         )
     )
+    long_ib = av.melt(
+        id_vars=["service_category"],
+        value_vars=["internal_avg_cost", "benchmark_avg_cost"],
+        var_name="metric",
+        value_name="value",
+    )
+    chart_r2l = (
+        alt.Chart(long_ib)
+        .mark_bar(cornerRadiusEnd=2)
+        .encode(
+            x=alt.X("service_category:N", title="service_category"),
+            xOffset="metric:N",
+            color=alt.Color("metric:N", title=None),
+            y=alt.Y("value:Q", title=""),
+            tooltip=["service_category", "metric", "value"],
+        )
+        .properties(height=320, title="Internal vs Benchmark Cost by Service Category")
+    )
+    with r2l:
+        st.altair_chart(chart_r2l, width="stretch")
+
+    avoid_by_cat = d.groupby("service_category", as_index=False)["estimated_cost_avoidance"].sum()
+    chart_r2r = (
+        alt.Chart(avoid_by_cat)
+        .mark_bar(color="#81c784", cornerRadiusEnd=2)
+        .encode(
+            x=alt.X("estimated_cost_avoidance:Q", title="estimated_cost_avoidance"),
+            y=alt.Y("service_category:N", title="service_category", sort="-x"),
+            tooltip=["service_category", "estimated_cost_avoidance"],
+        )
+        .properties(height=320, title="Estimated Cost Avoidance by Service Category")
+    )
+    with r2r:
+        st.altair_chart(chart_r2r, width="stretch")
+
+    st.divider()
+    r3l, r3r = st.columns(2)
+    monthly = (
+        d.groupby("month", as_index=False)
+        .agg(
+            internal_count=("internal_count", "sum"),
+            estimated_cost_avoidance=("estimated_cost_avoidance", "sum"),
+        )
+        .sort_values("month")
+    )
+    base_m = alt.Chart(monthly).encode(x=alt.X("month:N", sort=None, title="month"))
+    line_ic = base_m.mark_line(point=True, color="#4fc3f7").encode(
+        y=alt.Y("internal_count:Q", axis=alt.Axis(title="internal_count")),
+        tooltip=["month", "internal_count", "estimated_cost_avoidance"],
+    )
+    line_ev = base_m.mark_line(point=True, color="#ed6622").encode(
+        y=alt.Y(
+            "estimated_cost_avoidance:Q",
+            axis=alt.Axis(title="estimated_cost_avoidance", orient="right"),
+        ),
+        tooltip=["month", "internal_count", "estimated_cost_avoidance"],
+    )
+    chart_r3l = (
+        (line_ic + line_ev)
+        .resolve_scale(y="independent")
+        .properties(height=320, title="Monthly Services vs Estimated Value")
+    )
+    with r3l:
+        st.altair_chart(chart_r3l, width="stretch")
+
+    spend_by_cat = d.groupby("service_category", as_index=False)["benchmark_total_spend"].sum()
+    chart_r3r = (
+        alt.Chart(spend_by_cat)
+        .mark_bar(color="#9575cd", cornerRadiusTopRight=4)
+        .encode(
+            x=alt.X("service_category:N", title="service_category"),
+            y=alt.Y("benchmark_total_spend:Q", title="benchmark_total_spend"),
+            tooltip=["service_category", "benchmark_total_spend"],
+        )
+        .properties(height=320, title="Benchmark Spend by Service Category")
+    )
+    with r3r:
+        st.altair_chart(chart_r3r, width="stretch")
+
+    st.divider()
+    r4l, r4r = st.columns(2)
+    ev = d[d["service_category"] == _exec_dummy_kpi.EVENTS_CAT]
+    funnel_df = pd.DataFrame(
+        {
+            "stage": ["reach", "registrations", "attendance", "followups"],
+            "count": [
+                int(ev["event_reach"].sum()),
+                int(ev["event_registrations"].sum()),
+                int(ev["event_attendance"].sum()),
+                int(ev["qualified_followups"].sum()),
+            ],
+        }
+    )
+    chart_r4l = (
+        alt.Chart(funnel_df)
+        .mark_bar(color="#ba68c8")
+        .encode(
+            x=alt.X("stage:N", sort=None, title=None),
+            y=alt.Y("count:Q", title="Count"),
+            tooltip=["stage", "count"],
+        )
+        .properties(height=300, title="Event Engagement Funnel")
+    )
+    with r4l:
+        st.altair_chart(chart_r4l, width="stretch")
+
+    with r4r:
+        st.dataframe(d[_DUMMY_TABLE_COLS], width="stretch", hide_index=True)
+        st.subheader("Executive takeaway")
+        st.markdown(_exec_dummy_kpi.build_insight_markdown(d, kpis))
+        st.caption(
+            "Figures reflect dummy benchmark pairing for communication design, not operational accounting."
+        )
 
 
 def main() -> None:
     render_page_header(
         "Executive Overview",
         (
-            "Provide a fast, leadership-friendly summary of benchmark coverage, scored relevance, "
-            "and the practical value of the current benchmark dataset."
+            "Portfolio view of simulated internal delivery versus benchmark reference costs, "
+            "category-level value, timing, and engagement funnel signals for leadership review."
         ),
     )
 
     render_data_disclaimer_box()
 
-    scored_df = load_scored_dataset()
+    _render_executive_overview_paragraphs()
 
-    if scored_df.empty:
-        comparable_df = load_comparable_contracts()
-
-        if comparable_df.empty:
-            render_empty_data_message("Executive overview data")
-            return
-
-        st.warning(
-            "Comparable contracts data is available, but the scored dataset is not available yet. "
-            "Run the scoring pipeline to unlock KPI cards and executive relevance summaries."
-        )
-
-        st.subheader("Available Benchmark Input")
-        col1, col2, col3 = st.columns(3)
-        with col1:
-            render_metric_card("Comparable Records Available", f"{len(comparable_df):,}")
-
-        render_scope_warning_box(
-            "This page is designed to summarize scored benchmark outputs. Until scoring is available, "
-            "executive interpretation remains limited."
-        )
-        return
-
-    required_columns = {"relevance_score", "predicted_relevance_label"}
-    missing_columns = required_columns - set(scored_df.columns)
-
-    if missing_columns:
-        st.error(
-            "The scored dataset is missing required executive-overview columns: "
-            + ", ".join(sorted(missing_columns))
-        )
-        return
-
-    metrics = _build_executive_metrics(scored_df)
-
-    # -----------------------------------------------------------------
-    # Executive Takeaway (NEW)
-    # -----------------------------------------------------------------
-    total_records = int(metrics["total_records"])
-    relevant_records = int(metrics["relevant_records"])
-    relevant_pct = float(metrics["relevant_pct"])
-
-    st.markdown(
-        f"""
-### Executive Takeaway
-
-The current benchmark dataset contains **{total_records:,} contracts**, of which  
-**{relevant_records:,} ({relevant_pct:.1f}%)** are considered sufficiently comparable  
-to support external cost benchmarking.
-
-This indicates a **high-quality, decision-useful dataset**, where the majority of records  
-contribute meaningful external cost context rather than noise.
-"""
-    )
-
-    _render_kpi_cards(metrics)
-
-    st.markdown(
-        """
-**How to interpret these metrics**
-
-- A **high relevant share** means the filtering and ML pipeline are effectively isolating comparable contracts  
-- The **average relevance score** provides a signal of confidence across the dataset  
-- Together, these indicate whether the benchmark dataset is strong enough to support decision-making
-"""
-    )
-
-    st.markdown("---")
-    _render_value_statement(metrics)
-    st.markdown("---")
-    _render_summary_chart(metrics)
-    st.markdown("---")
-    _render_what_this_means_box(metrics)
+    _render_dummy_executive_dashboard_section()
 
     render_scope_warning_box(
-        "This page provides benchmark-derived context for leadership. It should be interpreted as "
-        "external cost comparison support, not as a formal savings claim or audited ROI calculation."
+        "This page provides illustrative portfolio context for leadership. It should be interpreted as "
+        "dummy benchmarking for layout and narrative testing, not as a formal savings claim or audited ROI calculation."
     )
 
 
 if __name__ == "__main__":
     main()
-

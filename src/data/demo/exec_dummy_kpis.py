@@ -1,4 +1,7 @@
-"""Locked KPI math for exec dummy data. Spec: KPI_FORMULAS_LOCKED.md."""
+"""Locked KPI math for exec dummy data.
+
+Normative formulas: ``executive_dummy_dashboard/KPI_FORMULAS_LOCKED.md`` (repo root).
+"""
 
 from __future__ import annotations
 
@@ -107,7 +110,7 @@ def fmt_pct_one(x: float | None) -> str:
 
 
 def build_insight_markdown(d: pd.DataFrame, kpis: ExecutiveKPIs | None) -> str:
-    """Exactly four executive bullets; see INSIGHT_PANEL_CONTROLLED_TEXT.md."""
+    """Exactly four executive bullets; see ``executive_dummy_dashboard/INSIGHT_PANEL_CONTROLLED_TEXT.md``."""
     if d.empty or kpis is None:
         return (
             "- Filtered frame is empty: efficiency, category mix, and trend bullets have no inputs.\n"

@@ -1,11 +1,12 @@
-"""Executive dummy dataset: loads `df` from sibling `exec_dummy_data.csv`.
+"""Executive dummy dataset: loads `df` from `exec_dummy_data.csv` next to this file.
 
 The CSV has 48 rows (2025-01 through 2025-12 × four service categories) and
 15 columns: internal vs benchmark cost metrics, estimated avoidance, efficiency,
 event funnel fields (non-zero only for Events & Engagement), and benchmark
 totals (spend and contract count).
 
-Specs and a reference Streamlit page live in `executive_dummy_dashboard/`.
+KPI logic lives alongside this file in `exec_dummy_kpis.py`. Specs and the prototype Streamlit page
+live under `executive_dummy_dashboard/` (repo root).
 """
 
 from pathlib import Path

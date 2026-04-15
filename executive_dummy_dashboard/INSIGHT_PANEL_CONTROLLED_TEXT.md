@@ -9,6 +9,6 @@
 3. **Growth trend** — First vs last `month` in the filtered frame on `estimated_cost_avoidance` summed by month; if one month only, state that the window is insufficient for direction.
 4. **Opportunity** — If Events rows exist and \(\sum event\_reach > 0\): reach→registration rate on filtered Events rows; else category with lowest mean `efficiency_percent` in the filtered frame.
 
-**Empty filtered frame:** Four bullets instruct to widen filters (implemented in `exec_dummy_kpis.build_insight_markdown`).
+**Empty filtered frame:** Four bullets instruct to widen filters (implemented in `src/data/demo/exec_dummy_kpis.py` → `build_insight_markdown`).
 
 **Disallowed in bullets:** Audit claims, ROI guarantees, competitor comparisons, causal language beyond the dummy framing.
