@@ -121,7 +121,11 @@ def _render_dummy_executive_dashboard_section() -> None:
         alt.Chart(long_ib)
         .mark_bar(cornerRadiusEnd=2)
         .encode(
-            x=alt.X("service_category:N", title="service_category"),
+            x=alt.X(
+                "service_category:N",
+                title="service_category",
+                axis=alt.Axis(labelAngle=-35),
+            ),
             xOffset="metric:N",
             color=alt.Color("metric:N", title=None),
             y=alt.Y("value:Q", title=""),
@@ -156,15 +160,16 @@ def _render_dummy_executive_dashboard_section() -> None:
         )
         .sort_values("month")
     )
+    st.caption("Blue = Services Delivered (count) | Orange = Estimated Value ($)")
     base_m = alt.Chart(monthly).encode(x=alt.X("month:N", sort=None, title="month"))
     line_ic = base_m.mark_line(point=True, color="#4fc3f7").encode(
-        y=alt.Y("internal_count:Q", axis=alt.Axis(title="internal_count")),
+        y=alt.Y("internal_count:Q", axis=alt.Axis(title="Services Delivered")),
         tooltip=["month", "internal_count", "estimated_cost_avoidance"],
     )
     line_ev = base_m.mark_line(point=True, color="#ed6622").encode(
         y=alt.Y(
             "estimated_cost_avoidance:Q",
-            axis=alt.Axis(title="estimated_cost_avoidance", orient="right"),
+            axis=alt.Axis(title="Estimated Value ($)", orient="right"),
         ),
         tooltip=["month", "internal_count", "estimated_cost_avoidance"],
     )
@@ -181,7 +186,11 @@ def _render_dummy_executive_dashboard_section() -> None:
         alt.Chart(spend_by_cat)
         .mark_bar(color="#9575cd", cornerRadiusTopRight=4)
         .encode(
-            x=alt.X("service_category:N", title="service_category"),
+            x=alt.X(
+                "service_category:N",
+                title="service_category",
+                axis=alt.Axis(labelAngle=-35),
+            ),
             y=alt.Y("benchmark_total_spend:Q", title="benchmark_total_spend"),
             tooltip=["service_category", "benchmark_total_spend"],
         )
