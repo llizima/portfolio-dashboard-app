@@ -181,22 +181,37 @@ def _render_dummy_executive_dashboard_section() -> None:
     with r3l:
         st.altair_chart(chart_r3l, width="stretch")
 
-    spend_by_cat = d.groupby("service_category", as_index=False)["benchmark_total_spend"].sum()
-    chart_r3r = (
-        alt.Chart(spend_by_cat)
-        .mark_bar(color="#9575cd", cornerRadiusTopRight=4)
-        .encode(
-            x=alt.X(
-                "service_category:N",
-                title="service_category",
-                axis=alt.Axis(labelAngle=-35),
-            ),
-            y=alt.Y("benchmark_total_spend:Q", title="benchmark_total_spend"),
-            tooltip=["service_category", "benchmark_total_spend"],
+    opp_vs_spend = (
+        d.groupby("service_category", as_index=False)
+        .agg(
+            benchmark_total_spend=("benchmark_total_spend", "sum"),
+            estimated_cost_avoidance=("estimated_cost_avoidance", "sum"),
         )
-        .properties(height=320, title="Benchmark Spend by Service Category")
+    )
+    points = alt.Chart(opp_vs_spend).mark_circle(color="#9575cd", size=140, opacity=0.85).encode(
+        x=alt.X("benchmark_total_spend:Q", title="benchmark_total_spend"),
+        y=alt.Y("estimated_cost_avoidance:Q", title="estimated_cost_avoidance"),
+        tooltip=["service_category", "benchmark_total_spend", "estimated_cost_avoidance"],
+    )
+    labels = alt.Chart(opp_vs_spend).mark_text(
+        align="left",
+        baseline="middle",
+        dx=8,
+        dy=-8,
+        fontSize=11,
+        color="#37474f",
+    ).encode(
+        x=alt.X("benchmark_total_spend:Q"),
+        y=alt.Y("estimated_cost_avoidance:Q"),
+        text=alt.Text("service_category:N"),
+    )
+    chart_r3r = (points + labels).properties(
+        height=320, title="Strategic Opportunity by Service Category"
     )
     with r3r:
+        st.caption(
+            "Categories farther toward the upper-right combine larger benchmark markets with higher estimated value opportunity."
+        )
         st.altair_chart(chart_r3r, width="stretch")
 
     st.divider()
