@@ -39,16 +39,16 @@ def _render_executive_overview_paragraphs() -> None:
     """Two static overview paragraphs (portfolio framing) before the dummy dashboard."""
     st.markdown(
         """
-        This page leads with an **illustrative portfolio dashboard** built from synthetic internal and
-        benchmark rows so reviewers can validate executive KPIs, category value concentration, timing,
-        and event-funnel shape before production feeds replace the dummy slice.
+        This page shows a sample dashboard built with simulated internal data and benchmark-based estimates.
+        It is meant to help reviewers clearly understand key measures—such as total value, cost comparisons
+        by category, trends over time, and event outcomes—before live production data is connected.
         """
     )
     st.markdown(
         """
-        This gives leadership a structured starting point for understanding what comparable external
-        work appears to cost in the broader market and how Applied Government Analytics (AGA)-delivered
-        capability may compare against that external context.
+        Its purpose is to give leadership a simple, structured way to see what similar work may cost in
+        the outside market and how work delivered by Applied Government Analytics (AGA) compares to that
+        external benchmark.
         """
     )
 
