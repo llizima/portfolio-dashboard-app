@@ -17,6 +17,7 @@ if str(_EXEC_DUMMY_DATA_DIR) not in sys.path:
 
 import exec_dummy_data  # noqa: E402
 import exec_dummy_kpis as _exec_dummy_kpi  # noqa: E402
+from src.data.demo.exec_benchmark_bridge import build_exec_benchmark_bridge  # noqa: E402
 
 from app.components.layout_helpers import (
     render_data_disclaimer_box,
@@ -65,11 +66,86 @@ def _dummy_month_range_ui(df: pd.DataFrame) -> list[str]:
     return months[i0 : i1 + 1]
 
 
+def _build_rapid_prototyping_audit_markdown(d: pd.DataFrame) -> str:
+    rp = d[d["service_category"] == "Rapid Prototyping"].copy()
+    if rp.empty:
+        return "Rapid Prototyping is not present in the current filtered slice."
+
+    row_count = int(len(rp))
+    total_internal_count = int(rp["internal_count"].sum())
+    total_internal_cost = float(rp["internal_total_cost"].sum())
+    total_benchmark_equivalent_cost = float(rp["benchmark_equivalent_cost"].sum())
+    total_estimated_cost_avoidance = float(rp["estimated_cost_avoidance"].sum())
+    mean_avoidance = float(rp["estimated_cost_avoidance"].mean())
+    median_avoidance = float(rp["estimated_cost_avoidance"].median())
+
+    benchmark_units = sorted(
+        rp["benchmark_per_unit"].dropna().astype(float).unique().tolist()
+    )
+    benchmark_per_unit_display = (
+        _exec_dummy_kpi.fmt_currency(benchmark_units[0])
+        if len(benchmark_units) == 1
+        else ", ".join(_exec_dummy_kpi.fmt_currency(v) for v in benchmark_units[:3])
+        + (" ..." if len(benchmark_units) > 3 else "")
+    )
+
+    other = d[d["service_category"] != "Rapid Prototyping"].copy()
+    rp_avg_bench_unit = float(rp["benchmark_per_unit"].mean())
+    other_avg_bench_unit = float(other["benchmark_per_unit"].mean()) if not other.empty else float("nan")
+    avg_internal_count_rp = float(rp["internal_count"].mean())
+    avg_internal_count_other = float(other["internal_count"].mean()) if not other.empty else float("nan")
+
+    reasons: list[str] = []
+    if len(benchmark_units) > 1:
+        reasons.append("possible inconsistency: more than one benchmark_per_unit value appears in-slice")
+    if total_estimated_cost_avoidance < 0:
+        reasons.append("possible inconsistency: total estimated cost avoidance is negative")
+    if row_count >= max(3, int(len(d) * 0.4)):
+        reasons.append("many rows")
+    if other_avg_bench_unit == other_avg_bench_unit and rp_avg_bench_unit > (other_avg_bench_unit * 1.5):
+        reasons.append("high benchmark_per_unit")
+    if avg_internal_count_other == avg_internal_count_other and avg_internal_count_rp > (avg_internal_count_other * 1.5):
+        reasons.append("high internal_count")
+    if not reasons:
+        reasons.append("mixed drivers with no single dominant outlier signal")
+
+    if "possible inconsistency: more than one benchmark_per_unit value appears in-slice" in reasons:
+        interpretation = "Diagnostic read: this result may require further scrutiny before drawing conclusions."
+    elif "possible inconsistency: total estimated cost avoidance is negative" in reasons:
+        interpretation = "Diagnostic read: this result may require further scrutiny before drawing conclusions."
+    elif "high benchmark_per_unit" in reasons and "high internal_count" not in reasons:
+        interpretation = "Diagnostic read: this result appears primarily benchmark-rate-driven."
+    elif "high internal_count" in reasons and "high benchmark_per_unit" not in reasons:
+        interpretation = "Diagnostic read: this result appears primarily volume-driven."
+    elif "many rows" in reasons and "high benchmark_per_unit" not in reasons:
+        interpretation = "Diagnostic read: this result appears primarily scale-driven."
+    else:
+        interpretation = "Diagnostic read: this result appears to reflect mixed drivers."
+
+    return (
+        f"{interpretation}\n\n"
+        f"- Row count: {row_count:,}\n"
+        f"- Total internal_count: {total_internal_count:,}\n"
+        f"- Total internal_total_cost: {_exec_dummy_kpi.fmt_currency(total_internal_cost)}\n"
+        f"- Benchmark_per_unit used: {benchmark_per_unit_display}\n"
+        f"- Total benchmark_equivalent_cost: {_exec_dummy_kpi.fmt_currency(total_benchmark_equivalent_cost)}\n"
+        f"- Total estimated_cost_avoidance: {_exec_dummy_kpi.fmt_currency(total_estimated_cost_avoidance)}\n"
+        f"- Mean estimated_cost_avoidance per row: {_exec_dummy_kpi.fmt_currency(mean_avoidance)}\n"
+        f"- Median estimated_cost_avoidance per row: {_exec_dummy_kpi.fmt_currency(median_avoidance)}\n"
+        f"- Likely primary driver(s): {', '.join(reasons)}."
+    )
+
+
 def _render_dummy_executive_dashboard_section() -> None:
     """Locked-layout dummy executive view (exec_dummy_data + exec_dummy_kpis; Altair)."""
     st.subheader("Executive value view (illustrative dummy data)")
     st.caption(
         "Illustrative benchmark pairing for leadership layout review; not operational accounting."
+    )
+    st.caption(
+        "Methodology: Internal activity and cost values are simulated for portfolio modeling; "
+        "external benchmark estimates are derived from real USAspending-based comparable contracts; "
+        "estimated cost avoidance is computed dynamically as benchmark_equivalent_cost minus internal_total_cost."
     )
 
     df = exec_dummy_data.df.copy()
@@ -78,11 +154,51 @@ def _render_dummy_executive_dashboard_section() -> None:
     sel_cat = st.multiselect("Service categories", cats, default=cats, key="exec_dummy_categories")
 
     d = _exec_dummy_kpi.apply_filters(df, months=months, categories=sel_cat if sel_cat else None)
+    bridge_df = build_exec_benchmark_bridge(d)
+    d = d.merge(bridge_df, on="service_category", how="left")
+    if d["benchmark_per_unit"].isna().any():
+        missing_categories = sorted(
+            d.loc[d["benchmark_per_unit"].isna(), "service_category"].dropna().astype(str).unique().tolist()
+        )
+        st.warning(
+            "Missing benchmark_per_unit for service categories: "
+            + ", ".join(missing_categories)
+            + ". Dynamic benchmark-equivalent values cannot be computed for this slice."
+        )
+        return
+    d["benchmark_equivalent_cost"] = d["internal_count"] * d["benchmark_per_unit"]
+    d["estimated_cost_avoidance"] = d["benchmark_equivalent_cost"] - d["internal_total_cost"]
+    row_identity_ok = (
+        (
+            d["estimated_cost_avoidance"]
+            - (d["benchmark_equivalent_cost"] - d["internal_total_cost"])
+        )
+        .abs()
+        .le(1e-6)
+    )
+    if not bool(row_identity_ok.all()):
+        failed_rows = int((~row_identity_ok).sum())
+        st.warning(
+            "Dynamic avoidance verification check failed for "
+            f"{failed_rows} row(s): estimated_cost_avoidance != "
+            "(benchmark_equivalent_cost - internal_total_cost) within tolerance."
+        )
     kpis = _exec_dummy_kpi.compute_executive_kpis(d)
 
     if kpis is None:
         st.info("No data in view for the current dummy filters.")
         return
+
+    with st.expander("Calculation debug summary", expanded=False):
+        st.markdown(
+            f"- Total internal cost: {_exec_dummy_kpi.fmt_currency(float(d['internal_total_cost'].sum()))}\n"
+            f"- Total benchmark equivalent cost: {_exec_dummy_kpi.fmt_currency(float(d['benchmark_equivalent_cost'].sum()))}\n"
+            f"- Total estimated cost avoidance: {_exec_dummy_kpi.fmt_currency(float(d['estimated_cost_avoidance'].sum()))}\n"
+            f"- Row count: {len(d):,}\n"
+            f"- Service categories present: {', '.join(sorted(d['service_category'].dropna().astype(str).unique().tolist()))}"
+        )
+    with st.expander("Rapid Prototyping audit", expanded=False):
+        st.markdown(_build_rapid_prototyping_audit_markdown(d))
 
     k1, k2, k3, k4, k5 = st.columns(5)
     with k1:
