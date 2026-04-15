@@ -1,0 +1,6 @@
+total_internal_cost = df["internal_total_cost"].sum()
+total_benchmark_equivalent_cost = df["benchmark_equivalent_cost"].sum()
+total_cost_avoidance = df["estimated_cost_avoidance"].sum()
+average_efficiency_percent = (df["efficiency_percent"] * df["internal_total_cost"]).sum() / df["internal_total_cost"].sum()
+total_services_delivered = df["internal_count"].sum()
+highest_value_service_category = df.groupby("service_category")["estimated_cost_avoidance"].sum().idxmax()
